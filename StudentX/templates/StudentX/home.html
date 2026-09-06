@@ -1,0 +1,456 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StudentHub | Student Tools</title>
+    <meta name="description" content="StudentHub - Everything a student needs in one place.">
+
+    <link rel="stylesheet" href="{% static 'StudentX/css/style.css' %}">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+        <div class="nav-container">
+
+            <a href="/" class="logo">
+                <span class="logo-icon">🎓</span>
+                <span>StudentHub</span>
+            </a>
+
+            <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+                ☰
+            </button>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="#home">Home</a>
+                <a href="#tools">Tools</a>
+                <a href="#career">Career</a>
+                <a href="#about">About</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <main>
+
+        <section class="hero" id="home">
+
+            <div class="hero-content">
+
+                <div class="hero-badge">
+                    🚀 Built for Students
+                </div>
+
+                <h1>
+                    Everything a Student
+                    <span>Needs in One Place</span>
+                </h1>
+
+                <p>
+                    Calculate your grades, track your attendance,
+                    analyze your resume and manage your academic journey
+                    with simple student-friendly tools.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#tools" class="primary-btn">
+                        Explore Tools →
+                    </a>
+
+                    <a href="#career" class="secondary-btn">
+                        Career Tools
+                    </a>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SEARCH ================= -->
+
+        <section class="search-section">
+
+            <div class="search-container">
+
+                <div class="search-title">
+                    <h2>Find a Student Tool</h2>
+                    <p>Search for the calculator or tool you need.</p>
+                </div>
+
+                <div class="search-box">
+                    <span>🔍</span>
+
+                    <input
+                        type="text"
+                        id="toolSearch"
+                        placeholder="Search CGPA, SGPA, attendance..."
+                        autocomplete="off"
+                    >
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= TOOLS ================= -->
+
+        <section class="tools-section" id="tools">
+
+            <div class="section-heading">
+                <span>ACADEMIC TOOLS</span>
+
+                <h2>Student Calculators</h2>
+
+                <p>
+                    Simple and accurate tools to help you with
+                    your academic calculations.
+                </p>
+            </div>
+
+
+            <div class="tools-grid" id="toolsGrid">
+
+                <!-- CGPA -->
+
+                <a href="{% url 'cgpa' %}" class="tool-card" data-name="cgpa calculator">
+
+                    <div class="tool-icon">📊</div>
+
+                    <div class="tool-content">
+                        <h3>CGPA Calculator</h3>
+
+                        <p>
+                            Calculate your overall CGPA easily.
+                        </p>
+                    </div>
+
+                    <span class="tool-arrow">→</span>
+
+                </a>
+
+
+                <!-- SGPA -->
+
+                <a href="{% url 'sgpa' %}" class="tool-card" data-name="sgpa calculator">
+
+                    <div class="tool-icon">📈</div>
+
+                    <div class="tool-content">
+                        <h3>SGPA Calculator</h3>
+
+                        <p>
+                            Calculate your semester SGPA.
+                        </p>
+                    </div>
+
+                    <span class="tool-arrow">→</span>
+
+                </a>
+
+
+                <!-- GPA -->
+
+               <a href="{% url 'gpa' %}" class="tool-card" data-name="gpa calculator">
+                    <div class="tool-icon">🎓</div>
+
+                    <div class="tool-content">
+                        <h3>GPA Calculator</h3>
+
+                        <p>
+                            Calculate your GPA quickly.
+                        </p>
+                    </div>
+
+                    <span class="tool-arrow">→</span>
+
+                </a>
+
+
+                <!-- Percentage -->
+
+                <a href="{% url 'percentage' %}" class="tool-card" data-name="percentage calculator">
+                    <div class="tool-icon">💯</div>
+
+                    <div class="tool-content">
+                        <h3>Percentage Calculator</h3>
+
+                        <p>
+                            Calculate marks and percentages.
+                        </p>
+                    </div>
+
+                    <span class="tool-arrow">→</span>
+
+                </a>
+
+
+                <!-- Marks -->
+
+                <a href="{% url 'marks' %}" class="tool-card" data-name="marks calculator">
+
+                    <div class="tool-icon">📝</div>
+
+                    <div class="tool-content">
+                        <h3>Marks Calculator</h3>
+
+                        <p>
+                            Calculate total and average marks.
+                        </p>
+                    </div>
+
+                    <span class="tool-arrow">→</span>
+
+                </a>
+
+
+                <!-- Attendance -->
+
+                <a href="{% url 'attendance' %}" class="tool-card" data-name="attendance calculator">
+                    <div class="tool-icon">📅</div>
+
+                    <div class="tool-content">
+                        <h3>Attendance Calculator</h3>
+
+                        <p>
+                            Check your attendance percentage.
+                        </p>
+                    </div>
+
+                    <span class="tool-arrow">→</span>
+
+                </a>
+
+
+                <!-- Required Marks -->
+
+                <a href="{% url 'required_marks' %}" class="tool-card" data-name="required marks calculator">
+
+                    <div class="tool-icon">🎯</div>
+
+                    <div class="tool-content">
+                        <h3>Required Marks</h3>
+
+                        <p>
+                            Find the marks needed to reach your target.
+                        </p>
+                    </div>
+
+                    <span class="tool-arrow">→</span>
+
+                </a>
+
+
+                               <!-- Backlog -->
+
+                <a href="{% url 'backlog' %}" class="tool-card" data-name="backlog calculator">
+
+                    <div class="tool-icon">📚</div>
+
+                    <div class="tool-content">
+                        <h3>Backlog Calculator</h3>
+
+                        <p>
+                            Track and calculate your backlogs.
+                        </p>
+                    </div>
+
+                    <span class="tool-arrow">→</span>
+
+                </a>
+
+
+                <!-- CGPA → Percentage -->
+
+                <a href="{% url 'cgpa_percentage' %}"
+                   class="tool-card"
+                   data-name="cgpa percentage calculator">
+
+                    <div class="tool-icon">%</div>
+
+                    <div class="tool-content">
+                        <h3>CGPA → Percentage</h3>
+
+                        <p>
+                            Convert your CGPA into percentage easily.
+                        </p>
+                    </div>
+
+                    <span class="tool-arrow">→</span>
+
+                </a>
+                <!-- Diploma CGPA -->
+
+<a href="{% url 'diploma_cgpa' %}"
+   class="tool-card"
+   data-name="diploma cgpa calculator">
+
+    <div class="tool-icon">🎓</div>
+
+    <div class="tool-content">
+        <h3>Diploma CGPA Calculator</h3>
+
+        <p>
+            Calculate your diploma CGPA easily using semester grades and credits.
+        </p>
+    </div>
+
+    <span class="tool-arrow">→</span>
+
+</a>
+
+
+            </div>
+
+
+            <div class="no-results" id="noResults">
+                <div>🔎</div>
+                <h3>No tools found</h3>
+                <p>Try searching for another student tool.</p>
+
+                
+            </div>
+
+        </section>
+        
+
+
+ <!-- ================= CAREER ================= -->
+
+<section class="career-section" id="career">
+
+    <div class="career-card">
+
+        <div class="career-text">
+
+            <div class="section-label">
+                CAREER TOOL
+            </div>
+
+            <h2>Make Your Resume Better</h2>
+
+            <p>
+                Analyze your resume and get useful insights
+                to improve your skills, structure and presentation.
+            </p>
+
+            <a href="{% url 'resume_analyzer' %}" class="primary-btn">
+                Resume Analyzer →
+            </a>
+
+        </div>
+
+
+        <div class="career-icon">
+            📄
+        </div>
+
+    </div>
+
+</section>
+
+        <!-- ================= ABOUT ================= -->
+
+        <section class="about-section" id="about">
+
+            <div class="section-heading">
+
+                <span>ABOUT STUDENTHUB</span>
+
+                <h2>Built for Every Student</h2>
+
+                <p>
+                    StudentHub is designed to bring useful academic
+                    and career tools together in one simple platform.
+                </p>
+
+            </div>
+
+
+            <div class="about-grid">
+
+                <div class="about-card">
+                    <div>⚡</div>
+                    <h3>Fast</h3>
+                    <p>
+                        Get your calculations quickly without complicated steps.
+                    </p>
+                </div>
+
+                <div class="about-card">
+                    <div>🎯</div>
+                    <h3>Simple</h3>
+                    <p>
+                        Student-friendly tools designed to be easy to use.
+                    </p>
+                </div>
+
+                <div class="about-card">
+                    <div>🌐</div>
+                    <h3>For Everyone</h3>
+                    <p>
+                        Tools for school, diploma, engineering, medical and more.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+                <div class="logo">
+                    <span class="logo-icon">🎓</span>
+                    StudentHub
+                </div>
+
+                <p>
+                    Everything a student needs in one place.
+                </p>
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="#home">Home</a>
+                <a href="#tools">Tools</a>
+                <a href="#career">Career</a>
+                <a href="#about">About</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+            <p>
+                ©2026 StudentHub. All rights reserved.
+            </p>
+        </div>
+
+    </footer>
+
+
+    <script src="{% static 'StudentX/js/script.js' %}"></script>
+
+</body>
+</html>

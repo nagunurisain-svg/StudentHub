@@ -1,0 +1,236 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Marks Calculator - StudentHub</title>
+
+    <link rel="stylesheet" href="{% static 'StudentX/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'StudentX/css/marks.css' %}">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+
+        <a href="{% url 'home' %}" class="logo">
+            StudentHub
+        </a>
+
+        <div class="nav-links">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'home' %}#tools">Tools</a>
+            <a href="{% url 'home' %}#career">Career</a>
+            <a href="{% url 'home' %}#about">About</a>
+        </div>
+
+    </div>
+</nav>
+
+
+<main class="marks-page">
+
+    <div class="marks-container">
+
+        <div class="marks-header">
+            <h1>Marks Calculator</h1>
+
+            <p>
+                Calculate total marks, average marks and percentage
+            </p>
+        </div>
+
+
+        <div class="marks-card">
+
+            <div class="table-wrapper">
+
+                <table class="marks-table">
+
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Subject</th>
+                            <th>Marks Obtained</th>
+                            <th>Maximum Marks</th>
+                            <th>Percentage</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="marksTableBody">
+
+                        <tr>
+
+                            <td class="subject-number">
+                                1
+                            </td>
+
+                            <td>
+                                <input
+                                    type="text"
+                                    class="subject-name"
+                                    placeholder="Subject"
+                                >
+                            </td>
+
+                            <td>
+                                <input
+                                    type="number"
+                                    class="marks-obtained"
+                                    placeholder="Obtained"
+                                    min="0"
+                                    step="0.01"
+                                >
+                            </td>
+
+                            <td>
+                                <input
+                                    type="number"
+                                    class="maximum-marks"
+                                    placeholder="Maximum"
+                                    min="1"
+                                    step="0.01"
+                                >
+                            </td>
+
+                            <td class="subject-percentage">
+                                -
+                            </td>
+
+                            <td>
+                                <button
+                                    type="button"
+                                    class="remove-subject"
+                                >
+                                    Remove
+                                </button>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <div class="marks-buttons">
+
+                <button
+                    type="button"
+                    id="addSubject"
+                    class="btn-add"
+                >
+                    + Add Subject
+                </button>
+
+                <button
+                    type="button"
+                    id="resetMarks"
+                    class="btn-reset"
+                >
+                    Reset
+                </button>
+
+                <button
+                    type="button"
+                    id="calculateMarks"
+                    class="btn-calculate"
+                >
+                    Calculate Marks
+                </button>
+
+            </div>
+
+
+            <div
+                id="marksError"
+                class="marks-error"
+            ></div>
+
+
+            <div class="marks-result">
+
+                <div class="result-box">
+                    <span>Total Obtained</span>
+
+                    <strong id="totalObtained">
+                        0
+                    </strong>
+                </div>
+
+
+                <div class="result-box">
+                    <span>Total Maximum</span>
+
+                    <strong id="totalMaximum">
+                        0
+                    </strong>
+                </div>
+
+
+                <div class="result-box">
+                    <span>Average Marks</span>
+
+                    <strong id="averageMarks">
+                        0
+                    </strong>
+                </div>
+
+
+                <div class="result-box highlight">
+                    <span>Overall Percentage</span>
+
+                    <strong id="overallPercentage">
+                        0%
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="formula-box">
+
+                <h2>Marks Calculation</h2>
+
+                <p>
+                    Total Marks = Sum of all obtained marks
+                </p>
+
+                <p>
+                    Average Marks = Total Obtained ÷ Number of Subjects
+                </p>
+
+                <p>
+                    Percentage =
+                    (Total Obtained ÷ Total Maximum) × 100
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<footer class="marks-footer">
+
+    <p>
+        © 2026 StudentHub. All rights reserved.
+    </p>
+
+</footer>
+
+
+<script src="{% static 'StudentX/js/marks.js' %}"></script>
+
+</body>
+</html>

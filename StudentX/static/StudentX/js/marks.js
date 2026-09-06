@@ -1,0 +1,398 @@
+document.addEventListener("DOMContentLoaded", function () {
+
+    const tableBody =
+        document.getElementById("marksTableBody");
+
+    const addButton =
+        document.getElementById("addSubject");
+
+    const resetButton =
+        document.getElementById("resetMarks");
+
+    const calculateButton =
+        document.getElementById("calculateMarks");
+
+    const errorBox =
+        document.getElementById("marksError");
+
+    const totalObtained =
+        document.getElementById("totalObtained");
+
+    const totalMaximum =
+        document.getElementById("totalMaximum");
+
+    const averageMarks =
+        document.getElementById("averageMarks");
+
+    const overallPercentage =
+        document.getElementById("overallPercentage");
+
+
+    function showError(message) {
+
+        errorBox.textContent = message;
+        errorBox.style.display = "block";
+
+    }
+
+
+    function hideError() {
+
+        errorBox.textContent = "";
+        errorBox.style.display = "none";
+
+    }
+
+
+    function updatePercentage(row) {
+
+        const obtainedInput =
+            row.querySelector(".marks-obtained");
+
+        const maximumInput =
+            row.querySelector(".maximum-marks");
+
+        const percentageCell =
+            row.querySelector(".subject-percentage");
+
+
+        const obtained =
+            parseFloat(obtainedInput.value);
+
+        const maximum =
+            parseFloat(maximumInput.value);
+
+
+        if (
+            !isNaN(obtained) &&
+            !isNaN(maximum) &&
+            maximum > 0 &&
+            obtained >= 0 &&
+            obtained <= maximum
+        ) {
+
+            const percentage =
+                (obtained / maximum) * 100;
+
+            percentageCell.textContent =
+                percentage.toFixed(2) + "%";
+
+        } else {
+
+            percentageCell.textContent = "-";
+
+        }
+
+    }
+
+
+    function updateNumbers() {
+
+        const rows =
+            tableBody.querySelectorAll("tr");
+
+
+        rows.forEach(function (row, index) {
+
+            row.querySelector(
+                ".subject-number"
+            ).textContent = index + 1;
+
+        });
+
+    }
+
+
+    function attachEvents(row) {
+
+        const obtainedInput =
+            row.querySelector(".marks-obtained");
+
+        const maximumInput =
+            row.querySelector(".maximum-marks");
+
+        const removeButton =
+            row.querySelector(".remove-subject");
+
+
+        obtainedInput.addEventListener(
+            "input",
+            function () {
+                updatePercentage(row);
+            }
+        );
+
+
+        maximumInput.addEventListener(
+            "input",
+            function () {
+                updatePercentage(row);
+            }
+        );
+
+
+        removeButton.addEventListener(
+            "click",
+            function () {
+
+                const rows =
+                    tableBody.querySelectorAll("tr");
+
+
+                if (rows.length > 1) {
+
+                    row.remove();
+
+                    updateNumbers();
+
+                } else {
+
+                    row.querySelector(
+                        ".subject-name"
+                    ).value = "";
+
+                    obtainedInput.value = "";
+
+                    maximumInput.value = "";
+
+                    updatePercentage(row);
+
+                }
+
+            }
+        );
+
+    }
+
+
+    addButton.addEventListener(
+        "click",
+        function () {
+
+            const row =
+                document.createElement("tr");
+
+
+            row.innerHTML = `
+
+                <td class="subject-number">
+                    1
+                </td>
+
+                <td>
+                    <input
+                        type="text"
+                        class="subject-name"
+                        placeholder="Subject"
+                    >
+                </td>
+
+                <td>
+                    <input
+                        type="number"
+                        class="marks-obtained"
+                        placeholder="Obtained"
+                        min="0"
+                        step="0.01"
+                    >
+                </td>
+
+                <td>
+                    <input
+                        type="number"
+                        class="maximum-marks"
+                        placeholder="Maximum"
+                        min="1"
+                        step="0.01"
+                    >
+                </td>
+
+                <td class="subject-percentage">
+                    -
+                </td>
+
+                <td>
+                    <button
+                        type="button"
+                        class="remove-subject"
+                    >
+                        Remove
+                    </button>
+                </td>
+
+            `;
+
+
+            tableBody.appendChild(row);
+
+            attachEvents(row);
+
+            updateNumbers();
+
+        }
+    );
+
+
+    calculateButton.addEventListener(
+        "click",
+        function () {
+
+            hideError();
+
+
+            const rows =
+                tableBody.querySelectorAll("tr");
+
+
+            let obtainedTotal = 0;
+
+            let maximumTotal = 0;
+
+
+            if (rows.length === 0) {
+
+                showError(
+                    "Please add at least one subject."
+                );
+
+                return;
+            }
+
+
+            for (const row of rows) {
+
+                const obtainedInput =
+                    row.querySelector(".marks-obtained");
+
+                const maximumInput =
+                    row.querySelector(".maximum-marks");
+
+
+                const obtained =
+                    parseFloat(obtainedInput.value);
+
+                const maximum =
+                    parseFloat(maximumInput.value);
+
+
+                if (isNaN(obtained)) {
+
+                    showError(
+                        "Please enter obtained marks for every subject."
+                    );
+
+                    obtainedInput.focus();
+
+                    return;
+                }
+
+
+                if (isNaN(maximum)) {
+
+                    showError(
+                        "Please enter maximum marks for every subject."
+                    );
+
+                    maximumInput.focus();
+
+                    return;
+                }
+
+
+                if (obtained < 0) {
+
+                    showError(
+                        "Marks cannot be negative."
+                    );
+
+                    obtainedInput.focus();
+
+                    return;
+                }
+
+
+                if (maximum <= 0) {
+
+                    showError(
+                        "Maximum marks must be greater than zero."
+                    );
+
+                    maximumInput.focus();
+
+                    return;
+                }
+
+
+                if (obtained > maximum) {
+
+                    showError(
+                        "Obtained marks cannot be greater than maximum marks."
+                    );
+
+                    obtainedInput.focus();
+
+                    return;
+                }
+
+
+                obtainedTotal += obtained;
+
+                maximumTotal += maximum;
+
+
+                updatePercentage(row);
+
+            }
+
+
+            const average =
+                obtainedTotal / rows.length;
+
+
+            const percentage =
+                (obtainedTotal / maximumTotal) * 100;
+
+
+            totalObtained.textContent =
+                obtainedTotal.toFixed(2);
+
+
+            totalMaximum.textContent =
+                maximumTotal.toFixed(2);
+
+
+            averageMarks.textContent =
+                average.toFixed(2);
+
+
+            overallPercentage.textContent =
+                percentage.toFixed(2) + "%";
+
+        }
+    );
+
+
+    resetButton.addEventListener(
+        "click",
+        function () {
+
+            location.reload();
+
+        }
+    );
+
+
+    const initialRows =
+        tableBody.querySelectorAll("tr");
+
+
+    initialRows.forEach(function (row) {
+
+        attachEvents(row);
+
+    });
+
+
+    updateNumbers();
+
+});

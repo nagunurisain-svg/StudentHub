@@ -1,0 +1,517 @@
+/* =========================================
+   PERCENTAGE CALCULATOR
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fb;
+    color: #1f2937;
+}
+
+
+/* =========================================
+   NAVBAR
+   ========================================= */
+
+.navbar {
+    width: 100%;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 16px 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 700;
+    color: #2563eb;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #374151;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: #2563eb;
+}
+
+
+/* =========================================
+   MAIN PAGE
+   ========================================= */
+
+.percentage-page {
+    min-height: calc(100vh - 130px);
+    padding: 45px 20px;
+}
+
+.percentage-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.percentage-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.percentage-header h1 {
+    margin: 0 0 10px;
+
+    font-size: 36px;
+    font-weight: 700;
+
+    color: #111827;
+}
+
+.percentage-header p {
+    margin: 0;
+
+    font-size: 16px;
+
+    color: #6b7280;
+}
+
+
+/* =========================================
+   CALCULATOR CARD
+   ========================================= */
+
+.percentage-card {
+    background: #ffffff;
+
+    padding: 30px;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.08);
+
+    border: 1px solid #e5e7eb;
+}
+
+
+/* =========================================
+   TABLE
+   ========================================= */
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.percentage-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 850px;
+}
+
+.percentage-table thead {
+    background: #f3f4f6;
+}
+
+.percentage-table th {
+    padding: 15px 12px;
+
+    text-align: left;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #374151;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.percentage-table td {
+    padding: 13px 12px;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    font-size: 14px;
+}
+
+.subject-number {
+    width: 45px;
+
+    text-align: center;
+
+    font-weight: 600;
+
+    color: #374151;
+}
+
+
+/* =========================================
+   INPUTS
+   ========================================= */
+
+.percentage-table input {
+    width: 100%;
+
+    padding: 11px 12px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    font-size: 14px;
+
+    outline: none;
+}
+
+.percentage-table input:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.percentage-table input::placeholder {
+    color: #9ca3af;
+}
+
+
+/* =========================================
+   SUBJECT PERCENTAGE
+   ========================================= */
+
+.subject-percentage {
+    min-width: 100px;
+
+    text-align: center;
+
+    font-weight: 700;
+
+    color: #2563eb;
+}
+
+
+/* =========================================
+   REMOVE BUTTON
+   ========================================= */
+
+.remove-subject {
+    border: none;
+
+    padding: 9px 14px;
+
+    border-radius: 7px;
+
+    background: #ef4444;
+
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    cursor: pointer;
+}
+
+.remove-subject:hover {
+    background: #dc2626;
+}
+
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+
+.percentage-buttons {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 25px;
+
+    flex-wrap: wrap;
+}
+
+.percentage-buttons button {
+    border: none;
+
+    padding: 12px 20px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.btn-add {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.btn-add:hover {
+    background: #1d4ed8;
+}
+
+.btn-reset {
+    background: #6b7280;
+    color: #ffffff;
+}
+
+.btn-reset:hover {
+    background: #4b5563;
+}
+
+.btn-calculate {
+    background: #16a34a;
+    color: #ffffff;
+}
+
+.btn-calculate:hover {
+    background: #15803d;
+}
+
+
+/* =========================================
+   ERROR
+   ========================================= */
+
+.percentage-error {
+    display: none;
+
+    margin-top: 20px;
+
+    padding: 13px 15px;
+
+    border-radius: 8px;
+
+    background: #fee2e2;
+
+    border: 1px solid #fecaca;
+
+    color: #b91c1c;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   RESULT SECTION
+   ========================================= */
+
+.percentage-result {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+.result-box {
+    padding: 22px;
+
+    text-align: center;
+
+    background: #f8fafc;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 12px;
+}
+
+.result-box span {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 14px;
+
+    color: #6b7280;
+
+    font-weight: 500;
+}
+
+.result-box strong {
+    display: block;
+
+    font-size: 28px;
+
+    color: #111827;
+}
+
+.result-box.highlight {
+    background: #eff6ff;
+
+    border-color: #bfdbfe;
+}
+
+.result-box.highlight strong {
+    color: #2563eb;
+}
+
+
+/* =========================================
+   FORMULA
+   ========================================= */
+
+.formula-box {
+    margin-top: 30px;
+
+    padding: 20px;
+
+    background: #eff6ff;
+
+    border: 1px solid #dbeafe;
+
+    border-radius: 12px;
+}
+
+.formula-box h2 {
+    margin: 0 0 10px;
+
+    font-size: 19px;
+
+    color: #1e3a8a;
+}
+
+.formula-box p {
+    margin: 0;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+
+    color: #374151;
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.percentage-footer {
+    text-align: center;
+
+    padding: 25px 20px;
+
+    background: #ffffff;
+
+    border-top: 1px solid #e5e7eb;
+}
+
+.percentage-footer p {
+    margin: 0;
+
+    font-size: 14px;
+
+    color: #6b7280;
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 800px) {
+
+    .percentage-page {
+        padding: 30px 15px;
+    }
+
+    .percentage-card {
+        padding: 20px;
+    }
+
+    .percentage-header h1 {
+        font-size: 30px;
+    }
+
+    .percentage-result {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .nav-container {
+        padding: 14px 15px;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+    .percentage-page {
+        padding: 25px 10px;
+    }
+
+    .percentage-header h1 {
+        font-size: 27px;
+    }
+
+    .percentage-header p {
+        font-size: 14px;
+    }
+
+    .percentage-card {
+        padding: 15px;
+    }
+
+    .percentage-result {
+        grid-template-columns: 1fr;
+    }
+
+    .percentage-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .percentage-buttons button {
+        width: 100%;
+    }
+
+}

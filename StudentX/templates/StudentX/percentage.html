@@ -1,0 +1,251 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Percentage Calculator - StudentHub</title>
+
+    <link rel="stylesheet" href="{% static 'StudentX/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'StudentX/css/percentage.css' %}">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <a href="{% url 'home' %}" class="logo">
+            StudentHub
+        </a>
+
+        <div class="nav-links">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'home' %}#tools">Tools</a>
+            <a href="{% url 'home' %}#career">Career</a>
+            <a href="{% url 'home' %}#about">About</a>
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- MAIN CONTENT -->
+<main class="percentage-page">
+
+    <div class="percentage-container">
+
+        <!-- HEADER -->
+        <div class="percentage-header">
+
+            <h1>Percentage Calculator</h1>
+
+            <p>
+                Calculate your overall percentage easily and accurately
+            </p>
+
+        </div>
+
+
+        <!-- CALCULATOR CARD -->
+        <div class="percentage-card">
+
+            <div class="table-wrapper">
+
+                <table class="percentage-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>#</th>
+
+                            <th>Subject</th>
+
+                            <th>Marks Obtained</th>
+
+                            <th>Maximum Marks</th>
+
+                            <th>Percentage</th>
+
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="percentageTableBody">
+
+                        <tr>
+
+                            <td class="subject-number">
+                                1
+                            </td>
+
+                            <td>
+                                <input
+                                    type="text"
+                                    class="subject-name"
+                                    placeholder="Subject"
+                                >
+                            </td>
+
+                            <td>
+                                <input
+                                    type="number"
+                                    class="marks-obtained"
+                                    placeholder="Obtained"
+                                    min="0"
+                                    step="0.01"
+                                >
+                            </td>
+
+                            <td>
+                                <input
+                                    type="number"
+                                    class="maximum-marks"
+                                    placeholder="Maximum"
+                                    min="1"
+                                    step="0.01"
+                                >
+                            </td>
+
+                            <td class="subject-percentage">
+                                -
+                            </td>
+
+                            <td>
+
+                                <button
+                                    type="button"
+                                    class="remove-subject"
+                                >
+                                    Remove
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- BUTTONS -->
+            <div class="percentage-buttons">
+
+                <button
+                    type="button"
+                    id="addSubject"
+                    class="btn-add"
+                >
+                    + Add Subject
+                </button>
+
+                <button
+                    type="button"
+                    id="resetPercentage"
+                    class="btn-reset"
+                >
+                    Reset
+                </button>
+
+                <button
+                    type="button"
+                    id="calculatePercentage"
+                    class="btn-calculate"
+                >
+                    Calculate Percentage
+                </button>
+
+            </div>
+
+
+            <!-- ERROR -->
+            <div
+                id="percentageError"
+                class="percentage-error"
+            ></div>
+
+
+            <!-- RESULTS -->
+            <div class="percentage-result">
+
+                <div class="result-box">
+
+                    <span>Total Obtained</span>
+
+                    <strong id="totalObtained">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="result-box">
+
+                    <span>Total Maximum</span>
+
+                    <strong id="totalMaximum">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="result-box highlight">
+
+                    <span>Overall Percentage</span>
+
+                    <strong id="overallPercentage">
+                        0%
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- FORMULA -->
+            <div class="formula-box">
+
+                <h2>Percentage Formula</h2>
+
+                <p>
+                    Percentage =
+                    (Total Marks Obtained ÷ Total Maximum Marks)
+                    × 100
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer class="percentage-footer">
+
+    <p>
+        © 2026 StudentHub. All rights reserved.
+    </p>
+
+</footer>
+
+
+<script src="{% static 'StudentX/js/percentage.js' %}"></script>
+
+</body>
+</html>

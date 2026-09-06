@@ -1,0 +1,405 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Resume Analyzer | StudentHub</title>
+
+    <link rel="stylesheet"
+          href="{% static 'StudentX/css/resume_analyzer.css' %}">
+
+</head>
+
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <a href="{% url 'home' %}" class="logo">
+
+                <span class="logo-icon">🎓</span>
+
+                <span>StudentHub</span>
+
+            </a>
+
+
+            <button class="menu-btn"
+                    id="menuBtn"
+                    aria-label="Open menu">
+
+                ☰
+
+            </button>
+
+
+            <nav class="nav-menu" id="navMenu">
+
+                <a href="{% url 'home' %}">Home</a>
+
+                <a href="{% url 'home' %}#tools">Tools</a>
+
+                <a href="{% url 'home' %}#career">Career</a>
+
+                <a href="{% url 'home' %}#about">About</a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="resume-page">
+
+        <div class="resume-container">
+
+
+            <!-- Header -->
+
+            <div class="page-header">
+
+                <div class="page-icon">
+                    📄
+                </div>
+
+                <h1>Resume Analyzer</h1>
+
+                <p>
+                    Upload your resume and check its structure,
+                    skills, education and overall presentation.
+                </p>
+
+            </div>
+
+
+
+            <!-- Analyzer Card -->
+
+            <div class="analyzer-card">
+
+
+                <!-- Upload Area -->
+
+                <div class="upload-area"
+                     id="uploadArea">
+
+                    <div class="upload-icon">
+                        📁
+                    </div>
+
+                    <h2>
+                        Upload Your Resume
+                    </h2>
+
+                    <p>
+                        Upload your PDF or DOCX resume
+                    </p>
+
+                    <label for="resumeFile"
+                           class="upload-btn">
+
+                        Choose Resume
+
+                    </label>
+
+                    <input
+                        type="file"
+                        id="resumeFile"
+                        accept=".pdf,.doc,.docx"
+                        hidden
+                    >
+
+                    <small>
+                        Supported formats: PDF, DOC, DOCX
+                    </small>
+
+                </div>
+
+
+
+                <!-- Selected File -->
+
+                <div class="selected-file"
+                     id="selectedFile">
+
+                    <div class="file-info">
+
+                        <span class="file-icon">
+                            📄
+                        </span>
+
+                        <div>
+
+                            <h3 id="fileName">
+                                Resume
+                            </h3>
+
+                            <p id="fileSize">
+                                0 KB
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="removeFile"
+                        class="remove-file">
+
+                        ×
+
+                    </button>
+
+                </div>
+
+                <!-- Upload Progress -->
+
+<div class="upload-progress" id="uploadProgress">
+
+    <div class="progress-info">
+        <span>Uploading Resume...</span>
+        <span id="uploadPercentage">0%</span>
+    </div>
+
+    <div class="progress-bar">
+        <div
+            class="progress-fill"
+            id="progressFill">
+        </div>
+    </div>
+
+</div>
+
+
+
+                <!-- Analyze Button -->
+
+                <button
+                    type="button"
+                    id="analyzeBtn"
+                    class="analyze-btn"
+                    disabled>
+
+                    Analyze Resume →
+
+                </button>
+
+                
+
+
+
+                <!-- Error -->
+
+                <div
+                    class="error-message"
+                    id="errorMessage">
+                </div>
+
+
+
+                <!-- Results -->
+
+                <div
+                    class="analysis-results"
+                    id="analysisResults">
+
+
+                    <div class="results-header">
+
+                        <h2>
+                            Resume Analysis
+                        </h2>
+
+                        <div class="score-circle">
+
+                            <span id="resumeScore">
+                                0
+                            </span>
+
+                            <small>
+                                / 100
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Result Cards -->
+
+                    <div class="result-grid">
+
+
+                        <div class="result-card">
+
+                            <div class="result-icon">
+                                👤
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    Personal Information
+                                </span>
+
+                                <strong id="personalScore">
+                                    Checking
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="result-card">
+
+                            <div class="result-icon">
+                                🎓
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    Education
+                                </span>
+
+                                <strong id="educationScore">
+                                    Checking
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="result-card">
+
+                            <div class="result-icon">
+                                💼
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    Experience
+                                </span>
+
+                                <strong id="experienceScore">
+                                    Checking
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="result-card">
+
+                            <div class="result-icon">
+                                🛠️
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    Skills
+                                </span>
+
+                                <strong id="skillsScore">
+                                    Checking
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- Suggestions -->
+
+                    <div class="suggestions-box">
+
+                        <h3>
+                            💡 Suggestions
+                        </h3>
+
+                        <ul id="suggestionsList">
+
+                            <li>
+                                Upload your resume to receive
+                                personalized suggestions.
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+
+                    <!-- Disclaimer -->
+
+                    <div class="analysis-note">
+
+                        <strong>Note:</strong>
+
+                        This initial analyzer checks resume
+                        structure and common sections.
+                        Detailed AI analysis can be added later.
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+      <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <!-- your existing footer code -->
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+
+    <script src="{% static 'StudentX/js/resume_analyzer.js' %}"></script>
+
+</body>
+
+</html>

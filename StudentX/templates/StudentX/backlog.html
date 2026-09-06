@@ -1,0 +1,276 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Backlog Calculator - StudentHub</title>
+
+    <link rel="stylesheet"
+          href="{% static 'StudentX/css/style.css' %}">
+
+    <link rel="stylesheet"
+          href="{% static 'StudentX/css/backlog.css' %}">
+
+</head>
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <a href="{% url 'home' %}" class="logo">
+            StudentHub
+        </a>
+
+        <div class="nav-links">
+
+            <a href="{% url 'home' %}">
+                Home
+            </a>
+
+            <a href="{% url 'home' %}#tools">
+                Tools
+            </a>
+
+            <a href="{% url 'home' %}#career">
+                Career
+            </a>
+
+            <a href="{% url 'home' %}#about">
+                About
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- MAIN -->
+
+<main class="backlog-page">
+
+    <div class="backlog-container">
+
+
+        <!-- HEADER -->
+
+        <div class="backlog-header">
+
+            <h1>
+                Backlog Calculator
+            </h1>
+
+            <p>
+                Calculate your total backlogs and cleared subjects
+            </p>
+
+        </div>
+
+
+
+        <!-- CARD -->
+
+        <div class="backlog-card">
+
+
+            <!-- INPUTS -->
+
+            <div class="input-grid">
+
+
+                <div class="input-group">
+
+                    <label for="totalSubjects">
+                        Total Subjects
+                    </label>
+
+                    <input
+                        type="number"
+                        id="totalSubjects"
+                        placeholder="Example: 40"
+                        min="0"
+                        step="1"
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label for="backlogSubjects">
+                        Current Backlogs
+                    </label>
+
+                    <input
+                        type="number"
+                        id="backlogSubjects"
+                        placeholder="Example: 3"
+                        min="0"
+                        step="1"
+                    >
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- BUTTONS -->
+
+            <div class="backlog-buttons">
+
+                <button
+                    type="button"
+                    id="resetBacklog"
+                    class="btn-reset"
+                >
+                    Reset
+                </button>
+
+
+                <button
+                    type="button"
+                    id="calculateBacklog"
+                    class="btn-calculate"
+                >
+                    Calculate Backlogs
+                </button>
+
+            </div>
+
+
+
+            <!-- ERROR -->
+
+            <div
+                id="backlogError"
+                class="backlog-error"
+            ></div>
+
+
+
+            <!-- RESULTS -->
+
+            <div class="backlog-result">
+
+
+                <div class="result-box">
+
+                    <span>
+                        Total Subjects
+                    </span>
+
+                    <strong id="resultTotal">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="result-box">
+
+                    <span>
+                        Current Backlogs
+                    </span>
+
+                    <strong id="resultBacklogs">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="result-box highlight">
+
+                    <span>
+                        Cleared Subjects
+                    </span>
+
+                    <strong id="resultCleared">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="result-box">
+
+                    <span>
+                        Completion Percentage
+                    </span>
+
+                    <strong id="resultCompletion">
+                        0%
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- INFO -->
+
+            <div class="formula-box">
+
+                <h2>
+                    Backlog Calculation
+                </h2>
+
+                <p>
+                    Cleared Subjects =
+                    Total Subjects − Current Backlogs
+                </p>
+
+                <p>
+                    Completion Percentage =
+                    (Cleared Subjects ÷ Total Subjects) × 100
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+<!-- FOOTER -->
+
+<footer class="backlog-footer">
+
+    <p>
+        © 2026 StudentHub. All rights reserved.
+    </p>
+
+</footer>
+
+
+
+<script
+    src="{% static 'StudentX/js/backlog.js' %}">
+</script>
+
+
+</body>
+
+</html>

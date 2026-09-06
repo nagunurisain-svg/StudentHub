@@ -1,0 +1,235 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Diploma CGPA Calculator | StudentHub</title>
+<link rel="stylesheet" href="{% static 'StudentX/css/diploma_cgpa.css' %}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+
+        <a href="{% url 'home' %}" class="logo">
+            StudentHub
+        </a>
+
+        <div class="nav-links">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'home' %}#tools">Tools</a>
+            <a href="{% url 'home' %}#about">About</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Diploma CGPA Calculator -->
+
+    <main class="diploma-cgpa-page">
+
+        <div class="diploma-cgpa-container">
+
+            <div class="page-header">
+
+                <h1>Diploma CGPA Calculator</h1>
+
+                <p>
+                    Calculate your diploma CGPA using semester SGPA and credits.
+                </p>
+
+            </div>
+
+
+            <div class="calculator-card">
+
+                <div class="semester-list" id="semesterList">
+
+                    <div class="semester-row">
+
+                        <div class="input-group">
+
+                            <label>Semester</label>
+
+                            <input
+                                type="text"
+                                value="1"
+                                class="semester-name"
+                                readonly
+                            >
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label>SGPA</label>
+
+                            <input
+                                type="number"
+                                class="sgpa-input"
+                                placeholder="0.00"
+                                min="0"
+                                max="10"
+                                step="0.01"
+                            >
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label>Credits</label>
+
+                            <input
+                                type="number"
+                                class="credits-input"
+                                placeholder="0"
+                                min="0"
+                                step="0.01"
+                            >
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="remove-semester"
+                            onclick="removeSemester(this)">
+                            ×
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="action-buttons">
+
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        onclick="addSemester()">
+                        + Add Semester
+                    </button>
+
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        onclick="resetCalculator()">
+                        Reset
+                    </button>
+
+                    <button
+                        type="button"
+                        class="btn btn-primary"
+                        onclick="calculateDiplomaCGPA()">
+                        Calculate CGPA
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="errorMessage"
+                    class="error-message">
+                </div>
+
+
+                <!-- Results -->
+
+                <div
+                    id="results"
+                    class="results">
+
+                    <h2>Your Result</h2>
+
+                    <div class="result-grid">
+
+                        <div class="result-box">
+
+                            <span>Diploma CGPA</span>
+
+                            <strong id="cgpaResult">
+                                0.00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-box">
+
+                            <span>Total Credits</span>
+
+                            <strong id="creditsResult">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-box">
+
+                            <span>Weighted Points</span>
+
+                            <strong id="pointsResult">
+                                0.00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-box">
+
+                            <span>Percentage</span>
+
+                            <strong id="percentageResult">
+                                0.00%
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="formula-box">
+
+                        <h3>Formula</h3>
+
+                        <p>
+                            Diploma CGPA =
+                            Σ(SGPA × Credits) ÷ Σ(Credits)
+                        </p>
+
+                        <p>
+                            Percentage = CGPA × 10
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <footer class="footer">
+
+        <p>
+            © 2026 StudentHub. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <script src="{% static 'StudentX/js/diploma_cgpa.js' %}"></script>
+
+</body>
+</html>

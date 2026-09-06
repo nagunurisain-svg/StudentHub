@@ -1,0 +1,449 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GPA Calculator | StudentHub</title>
+
+<meta
+    name="description"
+    content="Calculate your GPA using course credits and grade points with StudentHub."
+>
+
+<link
+    rel="stylesheet"
+    href="{% static 'StudentX/css/style.css' %}"
+>
+
+<link
+    rel="stylesheet"
+    href="{% static 'StudentX/css/gpa.css' %}"
+>
+
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+
+<div class="nav-container">
+
+    <a href="/" class="logo">
+        <span class="logo-icon">🎓</span>
+        <span>StudentHub</span>
+    </a>
+
+
+    <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Open menu"
+    >
+        ☰
+    </button>
+
+
+    <nav class="nav-menu" id="navMenu">
+
+        <a href="/">Home</a>
+
+        <a href="/#tools">Tools</a>
+
+        <a href="/#career">Career</a>
+
+        <a href="/#about">About</a>
+
+    </nav>
+
+</div>
+
+
+</header>
+
+<main>
+
+<section class="calculator-page">
+
+<!-- HEADER -->
+
+<div class="calculator-header">
+
+    <div class="calculator-badge">
+        🎓 Academic Calculator
+    </div>
+
+
+    <h1>GPA Calculator</h1>
+
+
+    <p>
+        Calculate your GPA using your course credits
+        and grade points.
+    </p>
+
+</div>
+
+
+
+<!-- CALCULATOR -->
+
+<div class="calculator-card">
+
+
+    <div class="card-title">
+
+        <h2>Course Details</h2>
+
+        <p>
+            Enter the credits and grade for each course.
+        </p>
+
+    </div>
+
+
+
+    <!-- TABLE HEADER -->
+
+    <div class="table-header">
+
+        <span>Course</span>
+
+        <span>Credits</span>
+
+        <span>Grade</span>
+
+        <span>Grade Point</span>
+
+        <span></span>
+
+    </div>
+
+
+
+    <!-- COURSES -->
+
+    <div id="courseContainer">
+
+
+        <div class="course-row">
+
+
+            <input
+                type="text"
+                class="course-name"
+                value="Course 1"
+                placeholder="Course name"
+            >
+
+
+            <input
+                type="number"
+                class="course-credit"
+                placeholder="Credits"
+                min="0"
+                step="0.5"
+            >
+
+
+            <select class="course-grade">
+
+                <option value="">
+                    Select
+                </option>
+
+                <option value="10">
+                    O
+                </option>
+
+                <option value="9">
+                    A+
+                </option>
+
+                <option value="8">
+                    A
+                </option>
+
+                <option value="7">
+                    B+
+                </option>
+
+                <option value="6">
+                    B
+                </option>
+
+                <option value="5">
+                    C
+                </option>
+
+                <option value="4">
+                    P
+                </option>
+
+                <option value="0">
+                    F
+                </option>
+
+            </select>
+
+
+            <input
+                type="text"
+                class="grade-point"
+                value="-"
+                readonly
+            >
+
+
+            <button
+                type="button"
+                class="remove-course"
+                aria-label="Remove course"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- BUTTONS -->
+
+    <div class="calculator-actions">
+
+
+        <button
+            type="button"
+            id="addCourse"
+            class="secondary-calc-btn"
+        >
+            + Add Course
+        </button>
+
+
+        <div class="right-actions">
+
+
+            <button
+                type="button"
+                id="resetCalculator"
+                class="reset-btn"
+            >
+                Reset
+            </button>
+
+
+            <button
+                type="button"
+                id="calculateGpa"
+                class="primary-calc-btn"
+            >
+                Calculate GPA
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ERROR -->
+
+    <div
+        id="errorMessage"
+        class="error-message"
+    ></div>
+
+
+
+    <!-- RESULT -->
+
+    <div class="result-box">
+
+
+        <div class="result-main">
+
+            <span>
+                YOUR GPA
+            </span>
+
+
+            <strong id="gpaResult">
+                0.00
+            </strong>
+
+        </div>
+
+
+
+        <div class="result-details">
+
+
+            <div>
+
+                <span>
+                    Total Credits
+                </span>
+
+                <strong id="totalCredits">
+                    0
+                </strong>
+
+            </div>
+
+
+
+            <div>
+
+                <span>
+                    Total Grade Points
+                </span>
+
+                <strong id="totalPoints">
+                    0.00
+                </strong>
+
+            </div>
+
+
+
+            <div>
+
+                <span>
+                    Percentage*
+                </span>
+
+                <strong id="percentageResult">
+                    0.00%
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- FORMULA -->
+
+<div class="formula-card">
+
+
+    <h2>
+        How is GPA calculated?
+    </h2>
+
+
+    <p>
+        GPA is calculated using the weighted average
+        of grade points based on course credits.
+    </p>
+
+
+    <div class="formula">
+
+        GPA =
+        Σ(Credits × Grade Point)
+        ÷
+        Σ(Credits)
+
+    </div>
+
+
+    <p class="formula-note">
+
+        *Percentage conversion varies by university.
+        The displayed percentage uses GPA × 10
+        as a general reference.
+
+    </p>
+
+
+</div>
+
+
+</section>
+
+</main>
+
+<footer class="footer">
+
+<div class="footer-container">
+
+
+    <div class="footer-brand">
+
+        <div class="logo">
+
+            <span class="logo-icon">
+                🎓
+            </span>
+
+            StudentHub
+
+        </div>
+
+
+        <p>
+            Everything a student needs in one place.
+        </p>
+
+    </div>
+
+
+
+    <div class="footer-links">
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/#tools">
+            Tools
+        </a>
+
+        <a href="/#career">
+            Career
+        </a>
+
+    </div>
+
+
+</div>
+
+
+
+<div class="footer-bottom">
+
+    <p>
+        © 2026 StudentHub. All rights reserved.
+    </p>
+
+</div>
+
+</footer>
+
+<script
+    src="{% static 'StudentX/js/gpa.js' %}"
+></script>
+
+</body>
+
+</html>
