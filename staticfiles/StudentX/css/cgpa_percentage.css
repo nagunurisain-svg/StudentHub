@@ -1,0 +1,323 @@
+/* ================================
+   CGPA → PERCENTAGE CALCULATOR
+   ================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fb;
+    color: #1f2937;
+}
+
+/* ================================
+   NAVBAR
+   ================================ */
+
+.navbar {
+    width: 100%;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 16px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 700;
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #374151;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: #2563eb;
+}
+
+/* ================================
+   MAIN CONTAINER
+   ================================ */
+
+.cgpa-percentage-page {
+    min-height: calc(100vh - 75px);
+    padding: 55px 20px;
+}
+
+.cgpa-percentage-container {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* ================================
+   HEADER
+   ================================ */
+
+.page-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.page-header h1 {
+    font-size: 34px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    font-size: 16px;
+    color: #6b7280;
+    line-height: 1.6;
+}
+
+/* ================================
+   CALCULATOR CARD
+   ================================ */
+
+.calculator-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+/* ================================
+   FORM
+   ================================ */
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 9px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.form-group input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+/* ================================
+   BUTTONS
+   ================================ */
+
+.button-group {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.btn {
+    flex: 1;
+    padding: 13px 18px;
+    border: none;
+    border-radius: 9px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.btn-primary {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: #1d4ed8;
+}
+
+.btn-secondary {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+.btn-secondary:hover {
+    background: #d1d5db;
+}
+
+/* ================================
+   ERROR MESSAGE
+   ================================ */
+
+.error-message {
+    display: none;
+    margin-top: 18px;
+    padding: 12px 15px;
+    background: #fee2e2;
+    border: 1px solid #fecaca;
+    color: #b91c1c;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+/* ================================
+   RESULTS
+   ================================ */
+
+.results {
+    display: none;
+    margin-top: 28px;
+}
+
+.results h2 {
+    font-size: 21px;
+    margin-bottom: 16px;
+    color: #111827;
+}
+
+.result-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.result-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+}
+
+.result-box span {
+    display: block;
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 8px;
+}
+
+.result-box strong {
+    display: block;
+    font-size: 28px;
+    color: #2563eb;
+    font-weight: 700;
+}
+
+/* ================================
+   FORMULA BOX
+   ================================ */
+
+.formula-box {
+    margin-top: 25px;
+    padding: 18px;
+    background: #eff6ff;
+    border: 1px solid #dbeafe;
+    border-radius: 10px;
+}
+
+.formula-box h3 {
+    font-size: 16px;
+    color: #1e40af;
+    margin-bottom: 8px;
+}
+
+.formula-box p {
+    font-size: 14px;
+    color: #374151;
+    line-height: 1.6;
+}
+
+/* ================================
+   FOOTER
+   ================================ */
+
+.footer {
+    text-align: center;
+    padding: 25px 20px;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+/* ================================
+   MOBILE RESPONSIVE
+   ================================ */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+    }
+
+    .cgpa-percentage-page {
+        padding: 35px 15px;
+    }
+
+    .page-header h1 {
+        font-size: 28px;
+    }
+
+    .page-header p {
+        font-size: 14px;
+    }
+
+    .calculator-card {
+        padding: 22px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .page-header h1 {
+        font-size: 25px;
+    }
+
+    .calculator-card {
+        padding: 18px;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .result-grid {
+        grid-template-columns: 1fr;
+    }
+}

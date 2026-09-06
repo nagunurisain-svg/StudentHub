@@ -1,0 +1,1083 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f8fafc;
+    color: #0f172a;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid #e2e8f0;
+    backdrop-filter: blur(10px);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 16px 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    font-size: 22px;
+    font-weight: 800;
+    color: #2563eb;
+}
+
+.logo-icon {
+    font-size: 25px;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav-menu a {
+    font-size: 15px;
+    font-weight: 600;
+    color: #475569;
+    transition: 0.2s;
+}
+
+.nav-menu a:hover {
+    color: #2563eb;
+}
+
+.menu-btn {
+    display: none;
+
+    border: none;
+    background: none;
+
+    font-size: 26px;
+    cursor: pointer;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 600px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 80px 24px;
+
+    background:
+        radial-gradient(circle at top left, #dbeafe, transparent 35%),
+        radial-gradient(circle at bottom right, #e0e7ff, transparent 35%),
+        #ffffff;
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+.hero-badge {
+    display: inline-block;
+
+    padding: 8px 16px;
+    margin-bottom: 24px;
+
+    border-radius: 30px;
+
+    background: #eff6ff;
+    color: #2563eb;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 7vw, 72px);
+    line-height: 1.05;
+    letter-spacing: -2px;
+
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    display: block;
+    color: #2563eb;
+}
+
+.hero p {
+    max-width: 700px;
+    margin: auto;
+
+    color: #64748b;
+
+    font-size: 18px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+
+    margin-top: 35px;
+}
+
+.primary-btn,
+.secondary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 13px 22px;
+
+    border-radius: 10px;
+
+    font-weight: 700;
+
+    transition: 0.2s;
+}
+
+.primary-btn {
+    background: #2563eb;
+    color: white;
+}
+
+.primary-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    background: white;
+    color: #2563eb;
+
+    border: 1px solid #cbd5e1;
+}
+
+.secondary-btn:hover {
+    border-color: #2563eb;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-section {
+    padding: 0 24px;
+}
+
+.search-container {
+    max-width: 850px;
+
+    margin: -45px auto 0;
+
+    position: relative;
+    z-index: 2;
+
+    padding: 30px;
+
+    background: white;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+
+    box-shadow: 0 15px 40px rgba(15, 23, 42, 0.08);
+}
+
+.search-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.search-title h2 {
+    font-size: 24px;
+}
+
+.search-title p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 15px 18px;
+
+    background: #f8fafc;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+}
+
+.search-box span {
+    font-size: 20px;
+}
+
+.search-box input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    font-size: 16px;
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.tools-section,
+.about-section {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 100px 24px;
+}
+
+.section-heading {
+    text-align: center;
+
+    max-width: 700px;
+
+    margin: 0 auto 45px;
+}
+
+.section-heading > span,
+.section-label {
+    color: #2563eb;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+.section-heading h2 {
+    margin: 8px 0 12px;
+
+    font-size: 38px;
+}
+
+.section-heading p {
+    color: #64748b;
+}
+
+
+/* =========================
+   TOOL CARDS
+========================= */
+
+.tools-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+.tool-card {
+    position: relative;
+
+    padding: 25px;
+
+    background: white;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+
+    transition: 0.25s;
+
+    overflow: hidden;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #93c5fd;
+
+    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
+}
+
+.tool-icon {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    border-radius: 13px;
+
+    background: #eff6ff;
+
+    font-size: 25px;
+}
+
+.tool-content h3 {
+    font-size: 18px;
+
+    margin-bottom: 7px;
+}
+
+.tool-content p {
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+.tool-arrow {
+    position: absolute;
+
+    right: 20px;
+    bottom: 20px;
+
+    color: #2563eb;
+
+    font-size: 20px;
+}
+
+.no-results {
+    display: none;
+
+    text-align: center;
+
+    padding: 50px;
+
+    color: #64748b;
+}
+
+.no-results div {
+    font-size: 40px;
+}
+
+.no-results h3 {
+    color: #0f172a;
+    margin: 10px 0;
+}
+
+
+/* =========================
+   CAREER
+========================= */
+
+.career-section {
+    padding: 30px 24px 100px;
+}
+
+.career-card {
+    max-width: 1150px;
+
+    margin: auto;
+
+    padding: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-radius: 24px;
+
+    background: #172554;
+
+    color: white;
+}
+
+.career-text {
+    max-width: 650px;
+}
+
+.career-text .section-label {
+    color: #93c5fd;
+}
+
+.career-text h2 {
+    font-size: 40px;
+
+    margin: 10px 0 15px;
+}
+
+.career-text p {
+    color: #bfdbfe;
+
+    margin-bottom: 25px;
+}
+
+.career-icon {
+    font-size: 100px;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.about-card {
+    padding: 30px;
+
+    text-align: center;
+
+    background: white;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+}
+
+.about-card > div {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.about-card h3 {
+    margin-bottom: 8px;
+}
+
+.about-card p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    background: #0f172a;
+    color: white;
+
+    padding: 50px 24px 20px;
+}
+
+.footer-container {
+    max-width: 1150px;
+
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-brand .logo {
+    color: white;
+}
+
+.footer-brand p {
+    color: #94a3b8;
+
+    margin-top: 10px;
+
+    font-size: 14px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 25px;
+}
+
+.footer-links a {
+    color: #cbd5e1;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    max-width: 1150px;
+
+    margin: 40px auto 0;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #1e293b;
+
+    text-align: center;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+
+    .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .career-card {
+        padding: 40px;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .nav-container {
+        padding: 14px 18px;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+
+        position: absolute;
+
+        top: 65px;
+        left: 0;
+        right: 0;
+
+        padding: 20px;
+
+        background: white;
+
+        border-bottom: 1px solid #e2e8f0;
+
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .hero {
+        min-height: 520px;
+
+        padding: 60px 20px;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .search-container {
+        padding: 22px;
+    }
+
+    .tools-section,
+    .about-section {
+        padding: 70px 18px;
+    }
+
+    .section-heading h2 {
+        font-size: 30px;
+    }
+
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .career-section {
+        padding: 10px 18px 70px;
+    }
+
+    .career-card {
+        padding: 30px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .career-text h2 {
+        font-size: 30px;
+    }
+
+    .career-icon {
+        display: none;
+    }
+
+    .footer-container {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 25px;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+    }
+
+}
+/* =========================================
+   CGPA → PERCENTAGE CALCULATOR
+   ========================================= */
+
+.cgpa-percentage-page {
+    min-height: calc(100vh - 75px);
+    padding: 55px 20px;
+}
+
+.cgpa-percentage-container {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.cgpa-percentage-page .page-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.cgpa-percentage-page .page-header h1 {
+    font-size: 34px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 10px;
+}
+
+.cgpa-percentage-page .page-header p {
+    font-size: 16px;
+    color: #6b7280;
+    line-height: 1.6;
+}
+
+.cgpa-percentage-page .calculator-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.cgpa-percentage-page .form-group {
+    margin-bottom: 22px;
+}
+
+.cgpa-percentage-page .form-group label {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+.cgpa-percentage-page .form-group input {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 9px;
+    font-size: 16px;
+    outline: none;
+}
+
+.cgpa-percentage-page .form-group input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.cgpa-percentage-page .button-group {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.cgpa-percentage-page .btn {
+    flex: 1;
+    padding: 13px 18px;
+    border: none;
+    border-radius: 9px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.cgpa-percentage-page .btn-primary {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.cgpa-percentage-page .btn-primary:hover {
+    background: #1d4ed8;
+}
+
+.cgpa-percentage-page .btn-secondary {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+.cgpa-percentage-page .btn-secondary:hover {
+    background: #d1d5db;
+}
+
+.cgpa-percentage-page .error-message {
+    display: none;
+    margin-top: 18px;
+    padding: 12px 15px;
+    background: #fee2e2;
+    border: 1px solid #fecaca;
+    color: #b91c1c;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.cgpa-percentage-page .results {
+    display: none;
+    margin-top: 28px;
+}
+
+.cgpa-percentage-page .results h2 {
+    font-size: 21px;
+    margin-bottom: 16px;
+    color: #111827;
+}
+
+.cgpa-percentage-page .result-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.cgpa-percentage-page .result-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+}
+
+.cgpa-percentage-page .result-box span {
+    display: block;
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 8px;
+}
+
+.cgpa-percentage-page .result-box strong {
+    display: block;
+    font-size: 28px;
+    color: #2563eb;
+    font-weight: 700;
+}
+
+.cgpa-percentage-page .formula-box {
+    margin-top: 25px;
+    padding: 18px;
+    background: #eff6ff;
+    border: 1px solid #dbeafe;
+    border-radius: 10px;
+}
+
+.cgpa-percentage-page .formula-box h3 {
+    font-size: 16px;
+    color: #1e40af;
+    margin-bottom: 8px;
+}
+
+.cgpa-percentage-page .formula-box p {
+    font-size: 14px;
+    color: #374151;
+    line-height: 1.6;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+    .cgpa-percentage-page {
+        padding: 35px 15px;
+    }
+
+    .cgpa-percentage-page .page-header h1 {
+        font-size: 28px;
+    }
+
+    .cgpa-percentage-page .calculator-card {
+        padding: 20px;
+    }
+
+    .cgpa-percentage-page .button-group {
+        flex-direction: column;
+    }
+
+    .cgpa-percentage-page .result-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================
+   DIPLOMA CGPA CALCULATOR
+   ========================================== */
+
+.diploma-cgpa-page {
+    min-height: 80vh;
+    padding: 55px 20px;
+}
+
+.diploma-cgpa-container {
+    width: 100%;
+    max-width: 850px;
+    margin: auto;
+}
+
+.diploma-cgpa-page .page-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.diploma-cgpa-page .page-header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.diploma-cgpa-page .page-header p {
+    color: #666;
+    font-size: 16px;
+}
+
+.diploma-cgpa-page .calculator-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+}
+
+.semester-list {
+    width: 100%;
+}
+
+.semester-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 45px;
+    gap: 15px;
+    align-items: end;
+    padding: 18px;
+    margin-bottom: 12px;
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 7px;
+    color: #374151;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+.remove-semester {
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 8px;
+    background: #fee2e2;
+    color: #dc2626;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.remove-semester:hover {
+    background: #fecaca;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.diploma-cgpa-page .btn {
+    flex: 1;
+    padding: 13px 18px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.diploma-cgpa-page .btn-primary {
+    background: #2563eb;
+    color: white;
+}
+
+.diploma-cgpa-page .btn-primary:hover {
+    background: #1d4ed8;
+}
+
+.diploma-cgpa-page .btn-secondary {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+.diploma-cgpa-page .btn-secondary:hover {
+    background: #d1d5db;
+}
+
+.diploma-cgpa-page .error-message {
+    display: none;
+    margin-top: 20px;
+    padding: 12px 15px;
+    background: #fee2e2;
+    border: 1px solid #fecaca;
+    color: #b91c1c;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.diploma-cgpa-page .results {
+    display: none;
+    margin-top: 30px;
+}
+
+.diploma-cgpa-page .results h2 {
+    margin-bottom: 16px;
+    font-size: 22px;
+}
+
+.diploma-cgpa-page .result-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.diploma-cgpa-page .result-box {
+    text-align: center;
+    padding: 20px;
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+}
+
+.diploma-cgpa-page .result-box span {
+    display: block;
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.diploma-cgpa-page .result-box strong {
+    font-size: 27px;
+    color: #2563eb;
+}
+
+.diploma-cgpa-page .formula-box {
+    margin-top: 22px;
+    padding: 18px;
+    background: #eff6ff;
+    border-radius: 10px;
+}
+
+.diploma-cgpa-page .formula-box h3 {
+    color: #1e40af;
+    margin-bottom: 8px;
+}
+
+.diploma-cgpa-page .formula-box p {
+    color: #374151;
+    margin: 5px 0;
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .semester-row {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .remove-semester {
+        width: 100%;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .diploma-cgpa-page .result-grid {
+        grid-template-columns: 1fr;
+    }
+}

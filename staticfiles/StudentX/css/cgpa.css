@@ -1,0 +1,288 @@
+.calculator-page {
+    max-width: 900px;
+    margin: auto;
+    padding: 80px 20px;
+}
+
+.calculator-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.calculator-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    margin-bottom: 15px;
+    border-radius: 30px;
+    background: #eff6ff;
+    color: #2563eb;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.calculator-header h1 {
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+.calculator-header p {
+    color: #64748b;
+}
+
+.calculator-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 15px 40px rgba(15, 23, 42, 0.07);
+}
+
+.card-title {
+    margin-bottom: 30px;
+}
+
+.card-title h2 {
+    font-size: 22px;
+}
+
+.card-title p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+.semester-row {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+    padding: 20px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.input-group label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #475569;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 13px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    outline: none;
+    font-size: 15px;
+    background: white;
+}
+
+.input-group input:focus {
+    border-color: #2563eb;
+}
+
+.remove-semester {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 27px;
+    height: 27px;
+    border: none;
+    border-radius: 50%;
+    background: #fee2e2;
+    color: #dc2626;
+    font-size: 19px;
+    cursor: pointer;
+}
+
+.remove-semester:hover {
+    background: #fecaca;
+}
+
+.calculator-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.right-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.primary-calc-btn,
+.secondary-calc-btn,
+.reset-btn {
+    padding: 13px 20px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.primary-calc-btn {
+    border: none;
+    background: #2563eb;
+    color: white;
+}
+
+.primary-calc-btn:hover {
+    background: #1d4ed8;
+}
+
+.secondary-calc-btn {
+    background: white;
+    color: #2563eb;
+    border: 1px solid #bfdbfe;
+}
+
+.secondary-calc-btn:hover {
+    background: #eff6ff;
+}
+
+.reset-btn {
+    border: 1px solid #cbd5e1;
+    background: white;
+    color: #475569;
+}
+
+.reset-btn:hover {
+    background: #f8fafc;
+}
+
+.error-message {
+    display: none;
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 8px;
+    background: #fef2f2;
+    color: #dc2626;
+    font-size: 14px;
+    text-align: center;
+}
+
+.result-box {
+    margin-top: 30px;
+    padding: 30px;
+    border-radius: 15px;
+    background: #eff6ff;
+    text-align: center;
+}
+
+.result-main span {
+    display: block;
+    color: #475569;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.result-main strong {
+    display: block;
+    margin: 5px 0;
+    font-size: 52px;
+    color: #2563eb;
+}
+
+.result-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #bfdbfe;
+}
+
+.result-details div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.result-details span {
+    color: #64748b;
+    font-size: 12px;
+}
+
+.result-details strong {
+    color: #0f172a;
+    font-size: 17px;
+}
+
+.formula-card {
+    margin-top: 25px;
+    padding: 30px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+}
+
+.formula-card h2 {
+    margin-bottom: 10px;
+}
+
+.formula-card p {
+    color: #64748b;
+}
+
+.formula {
+    margin-top: 20px;
+    padding: 18px;
+    background: #f8fafc;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.formula-note {
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+@media (max-width: 650px) {
+
+    .calculator-page {
+        padding: 50px 15px;
+    }
+
+    .calculator-header h1 {
+        font-size: 38px;
+    }
+
+    .calculator-card {
+        padding: 20px;
+    }
+
+    .semester-row {
+        grid-template-columns: 1fr;
+        padding-top: 35px;
+    }
+
+    .calculator-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .right-actions {
+        flex-direction: column;
+    }
+
+    .primary-calc-btn,
+    .secondary-calc-btn,
+    .reset-btn {
+        width: 100%;
+    }
+
+    .result-details {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+}
