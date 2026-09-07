@@ -1,79 +1,50 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    const container =
-        document.getElementById("courseContainer");
+    const courseContainer = document.getElementById("courseContainer");
+    const addCourseBtn = document.getElementById("addCourse");
+    const resetBtn = document.getElementById("resetCalculator");
+    const calculateBtn = document.getElementById("calculateGpa");
 
-    const addButton =
-        document.getElementById("addCourse");
+    const errorMessage = document.getElementById("errorMessage");
 
-    const calculateButton =
-        document.getElementById("calculateGpa");
-
-    const resetButton =
-        document.getElementById("resetCalculator");
-
-    const result =
-        document.getElementById("gpaResult");
-
-    const totalCredits =
-        document.getElementById("totalCredits");
-
-    const totalPoints =
-        document.getElementById("totalPoints");
-
-    const percentageResult =
-        document.getElementById("percentageResult");
-
-    const errorMessage =
-        document.getElementById("errorMessage");
+    const gpaResult = document.getElementById("gpaResult");
+    const totalCreditsResult = document.getElementById("totalCredits");
+    const totalPointsResult = document.getElementById("totalPoints");
+    const percentageResult = document.getElementById("percentageResult");
 
 
-    let courseNumber = 1;
-
-
-    /* =========================
-       UPDATE GRADE POINT
-    ========================= */
+    // ==========================================
+    // UPDATE GRADE POINT
+    // ==========================================
 
     function updateGradePoint(row) {
 
-        const grade =
-            row.querySelector(".course-grade").value;
+        const gradeSelect = row.querySelector(".course-grade");
+        const gradePointInput = row.querySelector(".grade-point");
 
-        const gradePoint =
-            row.querySelector(".grade-point");
-
-
-        if (grade === "") {
-
-            gradePoint.value = "-";
-
-        } else {
-
-            gradePoint.value =
-                Number(grade).toFixed(0);
-
+        if (!gradeSelect.value) {
+            gradePointInput.value = "-";
+            return;
         }
+
+        gradePointInput.value = parseFloat(gradeSelect.value).toFixed(1);
     }
 
 
-    /* =========================
-       ADD COURSE
-    ========================= */
+    // ==========================================
+    // ADD COURSE
+    // ==========================================
 
-    addButton.addEventListener("click", function () {
+    function addCourse() {
 
-        courseNumber++;
+        const courseNumber =
+            courseContainer.querySelectorAll(".course-row").length + 1;
 
-
-        const row =
-            document.createElement("div");
+        const row = document.createElement("div");
 
         row.className = "course-row";
 
-
         row.innerHTML = `
-
             <input
                 type="text"
                 class="course-name"
@@ -145,248 +116,373 @@ document.addEventListener("DOMContentLoaded", function () {
             </button>
         `;
 
+        courseContainer.appendChild(row);
 
-        container.appendChild(row);
-
-
-        row.querySelector(".course-grade")
-            .addEventListener(
-                "change",
-                function () {
-
-                    updateGradePoint(row);
-
-                }
-            );
-
-
-        attachRemoveButton(
-            row.querySelector(".remove-course")
-        );
-
-    });
-
-
-    /* =========================
-       REMOVE COURSE
-    ========================= */
-
-    function attachRemoveButton(button) {
-
-        button.addEventListener("click", function () {
-
-            const rows =
-                container.querySelectorAll(".course-row");
-
-
-            if (rows.length <= 1) {
-
-                showError(
-                    "At least one course is required."
-                );
-
-                return;
-            }
-
-
-            button.closest(".course-row").remove();
-
-
-            renumberCourses();
-
-        });
-
+        attachRowEvents(row);
     }
 
+
+    // ==========================================
+    // REMOVE COURSE
+    // ==========================================
+
+    function removeCourse(row) {
+
+        const rows =
+            courseContainer.querySelectorAll(".course-row");
+
+        if (rows.length <= 1) {
+
+            showError("At least one course is required.");
+
+            return;
+        }
+
+        row.remove();
+
+        clearError();
+
+        renumberCourses();
+    }
+
+
+    // ==========================================
+    // RENUMBER COURSES
+    // ==========================================
 
     function renumberCourses() {
 
         const rows =
-            container.querySelectorAll(".course-row");
-
+            courseContainer.querySelectorAll(".course-row");
 
         rows.forEach(function (row, index) {
 
-            row.querySelector(".course-name").value =
-                "Course " + (index + 1);
+            const courseName =
+                row.querySelector(".course-name");
+
+            if (
+                courseName &&
+                (
+                    courseName.value === "" ||
+                    courseName.value.startsWith("Course ")
+                )
+            ) {
+                courseName.value = `Course ${index + 1}`;
+            }
+
+        });
+    }
+
+
+    // ==========================================
+    // ATTACH EVENTS TO COURSE ROW
+    // ==========================================
+
+    function attachRowEvents(row) {
+
+        const gradeSelect =
+            row.querySelector(".course-grade");
+
+        const removeButton =
+            row.querySelector(".remove-course");
+
+
+        gradeSelect.addEventListener("change", function () {
+
+            updateGradePoint(row);
+
+            clearError();
 
         });
 
 
-        courseNumber = rows.length;
+        removeButton.addEventListener("click", function () {
+
+            removeCourse(row);
+
+        });
 
     }
 
 
-    /* =========================
-       CALCULATE GPA
-    ========================= */
+    // ==========================================
+    // CALCULATE GPA
+    // ==========================================
 
-    calculateButton.addEventListener(
-        "click",
-        function () {
+    function calculateGPA() {
 
-            const rows =
-                container.querySelectorAll(".course-row");
+        const rows =
+            courseContainer.querySelectorAll(".course-row");
 
 
-            let creditsSum = 0;
+        let totalCredits = 0;
+        let totalPoints = 0;
 
-            let pointsSum = 0;
-
-
-            hideError();
+        clearError();
 
 
-            for (const row of rows) {
+        for (let i = 0; i < rows.length; i++) {
 
-                const credits =
-                    parseFloat(
-                        row.querySelector(
-                            ".course-credit"
-                        ).value
-                    );
+            const row = rows[i];
 
+            const creditInput =
+                row.querySelector(".course-credit");
 
-                const grade =
-                    row.querySelector(
-                        ".course-grade"
-                    ).value;
+            const gradeSelect =
+                row.querySelector(".course-grade");
 
 
-                if (
-                    isNaN(credits) ||
-                    credits <= 0
-                ) {
+            const credits =
+                parseFloat(creditInput.value);
 
-                    showError(
-                        "Please enter valid credits for every course."
-                    );
-
-                    return;
-                }
+            const grade =
+                gradeSelect.value;
 
 
-                if (grade === "") {
+            // Check credits
 
-                    showError(
-                        "Please select a grade for every course."
-                    );
-
-                    return;
-                }
-
-
-                const gradePoint =
-                    parseFloat(grade);
-
-
-                creditsSum += credits;
-
-                pointsSum +=
-                    credits * gradePoint;
-
-            }
-
-
-            if (creditsSum <= 0) {
+            if (
+                creditInput.value === "" ||
+                isNaN(credits) ||
+                credits <= 0
+            ) {
 
                 showError(
-                    "Please enter your course details."
+                    `Please enter valid credits for Course ${i + 1}.`
                 );
+
+                creditInput.focus();
 
                 return;
             }
 
 
-            const gpa =
-                pointsSum / creditsSum;
+            // Check grade
+
+            if (grade === "") {
+
+                showError(
+                    `Please select a grade for Course ${i + 1}.`
+                );
+
+                gradeSelect.focus();
+
+                return;
+            }
 
 
-            const percentage =
-                gpa * 10;
+            const gradePoint =
+                parseFloat(grade);
 
 
-            result.textContent =
-                gpa.toFixed(2);
+            totalCredits += credits;
+
+            totalPoints += credits * gradePoint;
 
 
-            totalCredits.textContent =
-                creditsSum.toFixed(1);
-
-
-            totalPoints.textContent =
-                pointsSum.toFixed(2);
-
-
-            percentageResult.textContent =
-                percentage.toFixed(2) + "%";
-
+            updateGradePoint(row);
         }
-    );
 
 
-    /* =========================
-       RESET
-    ========================= */
+        if (totalCredits <= 0) {
 
-    resetButton.addEventListener(
-        "click",
-        function () {
+            showError("Total credits must be greater than zero.");
 
-            location.reload();
-
+            return;
         }
-    );
 
 
-    /* =========================
-       ERROR
-    ========================= */
+        const gpa =
+            totalPoints / totalCredits;
+
+
+        const percentage =
+            gpa * 10;
+
+
+        // ==========================================
+        // DISPLAY RESULTS
+        // ==========================================
+
+        gpaResult.textContent =
+            gpa.toFixed(2);
+
+
+        totalCreditsResult.textContent =
+            totalCredits.toFixed(1);
+
+
+        totalPointsResult.textContent =
+            totalPoints.toFixed(2);
+
+
+        percentageResult.textContent =
+            percentage.toFixed(2) + "%";
+
+
+        clearError();
+
+    }
+
+
+    // ==========================================
+    // RESET
+    // ==========================================
+
+    function resetCalculator() {
+
+        courseContainer.innerHTML = `
+
+            <div class="course-row">
+
+                <input
+                    type="text"
+                    class="course-name"
+                    value="Course 1"
+                    placeholder="Course name"
+                >
+
+                <input
+                    type="number"
+                    class="course-credit"
+                    placeholder="Credits"
+                    min="0"
+                    step="0.5"
+                >
+
+                <select class="course-grade">
+
+                    <option value="">
+                        Select
+                    </option>
+
+                    <option value="10">
+                        O
+                    </option>
+
+                    <option value="9">
+                        A+
+                    </option>
+
+                    <option value="8">
+                        A
+                    </option>
+
+                    <option value="7">
+                        B+
+                    </option>
+
+                    <option value="6">
+                        B
+                    </option>
+
+                    <option value="5">
+                        C
+                    </option>
+
+                    <option value="4">
+                        P
+                    </option>
+
+                    <option value="0">
+                        F
+                    </option>
+
+                </select>
+
+                <input
+                    type="text"
+                    class="grade-point"
+                    value="-"
+                    readonly
+                >
+
+                <button
+                    type="button"
+                    class="remove-course"
+                    aria-label="Remove course"
+                >
+                    ×
+                </button>
+
+            </div>
+
+        `;
+
+
+        gpaResult.textContent = "0.00";
+
+        totalCreditsResult.textContent = "0";
+
+        totalPointsResult.textContent = "0.00";
+
+        percentageResult.textContent = "0.00%";
+
+
+        clearError();
+
+
+        const firstRow =
+            courseContainer.querySelector(".course-row");
+
+        attachRowEvents(firstRow);
+
+    }
+
+
+    // ==========================================
+    // ERROR MESSAGE
+    // ==========================================
 
     function showError(message) {
 
-        errorMessage.textContent =
-            message;
+        errorMessage.textContent = message;
 
-        errorMessage.style.display =
-            "block";
+        errorMessage.style.display = "block";
 
     }
 
 
-    function hideError() {
+    function clearError() {
 
-        errorMessage.textContent =
-            "";
+        errorMessage.textContent = "";
 
-        errorMessage.style.display =
-            "none";
+        errorMessage.style.display = "none";
 
     }
 
 
-    /* =========================
-       INITIAL EVENTS
-    ========================= */
+    // ==========================================
+    // BUTTON EVENTS
+    // ==========================================
+
+    addCourseBtn.addEventListener(
+        "click",
+        addCourse
+    );
+
+
+    resetBtn.addEventListener(
+        "click",
+        resetCalculator
+    );
+
+
+    calculateBtn.addEventListener(
+        "click",
+        calculateGPA
+    );
+
+
+    // ==========================================
+    // INITIALIZE FIRST ROW
+    // ==========================================
 
     const firstRow =
-        container.querySelector(".course-row");
+        courseContainer.querySelector(".course-row");
 
-
-    firstRow.querySelector(".course-grade")
-        .addEventListener(
-            "change",
-            function () {
-
-                updateGradePoint(firstRow);
-
-            }
-        );
-
-
-    attachRemoveButton(
-        firstRow.querySelector(".remove-course")
-    );
+    if (firstRow) {
+        attachRowEvents(firstRow);
+    }
 
 });

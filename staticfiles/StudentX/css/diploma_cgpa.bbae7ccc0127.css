@@ -1,0 +1,434 @@
+/* ==========================================
+   DIPLOMA CGPA CALCULATOR
+   ========================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fb;
+    color: #1f2937;
+}
+
+
+/* ==========================================
+   NAVBAR
+   ========================================== */
+
+.navbar {
+    width: 100%;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 16px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 700;
+    color: #2563eb;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #374151;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: #2563eb;
+}
+
+
+/* ==========================================
+   MAIN PAGE
+   ========================================== */
+
+.diploma-cgpa-page {
+    min-height: calc(100vh - 75px);
+    padding: 55px 20px;
+}
+
+.diploma-cgpa-container {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+
+/* ==========================================
+   PAGE HEADER
+   ========================================== */
+
+.diploma-cgpa-page .page-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.diploma-cgpa-page .page-header h1 {
+    font-size: 34px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 10px;
+}
+
+.diploma-cgpa-page .page-header p {
+    font-size: 16px;
+    color: #6b7280;
+    line-height: 1.6;
+}
+
+
+/* ==========================================
+   CALCULATOR CARD
+   ========================================== */
+
+.diploma-cgpa-page .calculator-card {
+    width: 100%;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+
+/* ==========================================
+   SEMESTER ROW
+   ========================================== */
+
+.semester-list {
+    width: 100%;
+}
+
+.semester-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 45px;
+    gap: 15px;
+    align-items: end;
+
+    padding: 18px;
+    margin-bottom: 12px;
+
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+}
+
+
+/* ==========================================
+   INPUT GROUP
+   ========================================== */
+
+.input-group {
+    width: 100%;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 7px;
+
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.input-group input {
+    width: 100%;
+    height: 44px;
+
+    padding: 10px 12px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+
+    background: #ffffff;
+    color: #1f2937;
+
+    font-size: 15px;
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+
+/* ==========================================
+   REMOVE BUTTON
+   ========================================== */
+
+.remove-semester {
+    width: 44px;
+    height: 44px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #fee2e2;
+    color: #dc2626;
+
+    font-size: 23px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.remove-semester:hover {
+    background: #fecaca;
+}
+
+
+/* ==========================================
+   ACTION BUTTONS
+   ========================================== */
+
+.action-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.diploma-cgpa-page .btn {
+    flex: 1;
+
+    padding: 13px 18px;
+
+    border: none;
+    border-radius: 9px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+
+/* Primary */
+
+.diploma-cgpa-page .btn-primary {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.diploma-cgpa-page .btn-primary:hover {
+    background: #1d4ed8;
+}
+
+
+/* Secondary */
+
+.diploma-cgpa-page .btn-secondary {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+.diploma-cgpa-page .btn-secondary:hover {
+    background: #d1d5db;
+}
+
+
+/* ==========================================
+   ERROR MESSAGE
+   ========================================== */
+
+.diploma-cgpa-page .error-message {
+    display: none;
+
+    margin-top: 20px;
+    padding: 13px 15px;
+
+    background: #fee2e2;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+
+    color: #b91c1c;
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   RESULTS
+   ========================================== */
+
+.diploma-cgpa-page .results {
+    display: none;
+    margin-top: 30px;
+}
+
+.diploma-cgpa-page .results h2 {
+    margin-bottom: 16px;
+
+    font-size: 22px;
+    font-weight: 700;
+    color: #111827;
+}
+
+
+/* ==========================================
+   RESULT GRID
+   ========================================== */
+
+.diploma-cgpa-page .result-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+
+/* ==========================================
+   RESULT BOX
+   ========================================== */
+
+.diploma-cgpa-page .result-box {
+    padding: 20px;
+
+    text-align: center;
+
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+}
+
+.diploma-cgpa-page .result-box span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.diploma-cgpa-page .result-box strong {
+    display: block;
+
+    font-size: 28px;
+    font-weight: 700;
+
+    color: #2563eb;
+}
+
+
+/* ==========================================
+   FORMULA BOX
+   ========================================== */
+
+.diploma-cgpa-page .formula-box {
+    margin-top: 22px;
+    padding: 18px;
+
+    background: #eff6ff;
+    border: 1px solid #dbeafe;
+    border-radius: 10px;
+}
+
+.diploma-cgpa-page .formula-box h3 {
+    margin-bottom: 8px;
+
+    font-size: 16px;
+    color: #1e40af;
+}
+
+.diploma-cgpa-page .formula-box p {
+    margin: 5px 0;
+
+    color: #374151;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+
+.footer {
+    padding: 25px 20px;
+
+    text-align: center;
+
+    color: #6b7280;
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   TABLET
+   ========================================== */
+
+@media (max-width: 700px) {
+
+    .diploma-cgpa-page {
+        padding: 40px 15px;
+    }
+
+    .diploma-cgpa-page .calculator-card {
+        padding: 22px;
+    }
+
+    .semester-row {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .remove-semester {
+        width: 100%;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .diploma-cgpa-page .result-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ==========================================
+   MOBILE
+   ========================================== */
+
+@media (max-width: 500px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .diploma-cgpa-page .page-header h1 {
+        font-size: 27px;
+    }
+
+    .diploma-cgpa-page .page-header p {
+        font-size: 14px;
+    }
+
+    .diploma-cgpa-page .calculator-card {
+        padding: 18px;
+    }
+
+    .semester-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .remove-semester {
+        width: 100%;
+    }
+}

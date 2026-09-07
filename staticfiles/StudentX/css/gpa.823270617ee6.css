@@ -1,0 +1,215 @@
+/* GPA Calculator */
+
+.gpa-page {
+    min-height: 100vh;
+    padding: 40px 20px;
+    background: #f5f7fb;
+}
+
+.gpa-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.gpa-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.gpa-header h1 {
+    margin: 0 0 10px;
+    font-size: 36px;
+    color: #1f2937;
+}
+
+.gpa-header p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 16px;
+}
+
+.gpa-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    overflow-x: auto;
+}
+
+.gpa-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 750px;
+}
+
+.gpa-table th {
+    background: #f3f4f6;
+    color: #374151;
+    padding: 14px 10px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.gpa-table td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.gpa-table input,
+.gpa-table select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.gpa-table input:focus,
+.gpa-table select:focus {
+    border-color: #2563eb;
+}
+
+.grade-point {
+    background: #f9fafb;
+    text-align: center;
+}
+
+.remove-course {
+    border: none;
+    background: #ef4444;
+    color: white;
+    padding: 9px 14px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.remove-course:hover {
+    opacity: 0.9;
+}
+
+.gpa-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.gpa-buttons button {
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.add-course {
+    background: #2563eb;
+    color: white;
+}
+
+.reset-gpa {
+    background: #6b7280;
+    color: white;
+}
+
+.calculate-gpa {
+    background: #16a34a;
+    color: white;
+}
+
+.gpa-error {
+    display: none;
+    margin-top: 18px;
+    padding: 12px 15px;
+    background: #fee2e2;
+    color: #b91c1c;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.gpa-result {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.result-box {
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+}
+
+.result-box h3 {
+    margin: 0 0 8px;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.result-box p {
+    margin: 0;
+    color: #111827;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.gpa-formula {
+    margin-top: 30px;
+    padding: 20px;
+    background: #eff6ff;
+    border-radius: 12px;
+    border: 1px solid #dbeafe;
+}
+
+.gpa-formula h2 {
+    margin: 0 0 10px;
+    color: #1e3a8a;
+    font-size: 20px;
+}
+
+.gpa-formula p {
+    margin: 0;
+    color: #374151;
+    line-height: 1.6;
+}
+
+@media (max-width: 800px) {
+    .gpa-page {
+        padding: 25px 12px;
+    }
+
+    .gpa-header h1 {
+        font-size: 28px;
+    }
+
+    .gpa-card {
+        padding: 15px;
+    }
+
+    .gpa-result {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .gpa-result {
+        grid-template-columns: 1fr;
+    }
+
+    .gpa-buttons {
+        flex-direction: column;
+    }
+
+    .gpa-buttons button {
+        width: 100%;
+    }
+}
+.calculator-page {
+    background: red !important;
+}
