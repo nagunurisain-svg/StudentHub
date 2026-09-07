@@ -1,272 +1,354 @@
 {% load static %}
 
 <!DOCTYPE html>
-
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SGPA Calculator | StudentHub</title>
+    <title>SGPA Calculator – Calculate Semester SGPA Online | StudentHub</title>
 
-<link rel="stylesheet" href="{% static 'StudentX/css/style.css' %}">
-<link rel="stylesheet" href="{% static 'StudentX/css/sgpa.css' %}">
+    <meta name="description"
+          content="Calculate your semester SGPA online with StudentHub's free SGPA calculator using subject credits and grade points.">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical"
+          href="https://studenthub-kmob.onrender.com/sgpa/">
+
+    <link rel="stylesheet"
+          href="{% static 'StudentX/css/style.css' %}">
+
+    <link rel="stylesheet"
+          href="{% static 'StudentX/css/sgpa.css' %}">
 
 </head>
 
 <body>
 
 <header class="navbar">
+
     <div class="nav-container">
 
-    <a href="/" class="logo">
-        <span class="logo-icon">🎓</span>
-        <span>StudentHub</span>
-    </a>
+        <a href="/" class="logo">
+            <span class="logo-icon">🎓</span>
+            <span>StudentHub</span>
+        </a>
 
-    <button class="menu-btn" id="menuBtn">☰</button>
+        <button
+            class="menu-btn"
+            id="menuBtn"
+        >
+            ☰
+        </button>
 
-    <nav class="nav-menu" id="navMenu">
-        <a href="/">Home</a>
-        <a href="/#tools">Tools</a>
-        <a href="/#career">Career</a>
-        <a href="/#about">About</a>
-    </nav>
+        <nav class="nav-menu" id="navMenu">
 
-</div>
+            <a href="/">Home</a>
+
+            <a href="/#tools">Tools</a>
+
+            <a href="/#career">Career</a>
+
+            <a href="/#about">About</a>
+
+        </nav>
+
+    </div>
 
 </header>
+
 
 <main>
 
 <section class="calculator-page">
 
-<div class="calculator-header">
 
-    <div class="calculator-badge">
-        📈 Academic Calculator
-    </div>
+    <div class="calculator-header">
 
-    <h1>SGPA Calculator</h1>
+        <div class="calculator-badge">
+            📈 Academic Calculator
+        </div>
 
-    <p>
-        Calculate your semester SGPA using subject credits
-        and grade points.
-    </p>
-
-</div>
-
-
-<div class="calculator-card">
-
-    <div class="card-title">
-
-        <h2>Subject Details</h2>
+        <h1>SGPA Calculator</h1>
 
         <p>
-            Enter the credits and grade for every subject.
+            Calculate your semester SGPA using subject credits
+            and grade points.
         </p>
 
     </div>
 
 
-    <div class="table-header">
-        <span>Subject</span>
-        <span>Credits</span>
-        <span>Grade</span>
-        <span>Grade Point</span>
-        <span></span>
-    </div>
+    <div class="calculator-card">
 
+        <div class="card-title">
 
-    <div id="subjectContainer">
+            <h2>Subject Details</h2>
 
-        <div class="subject-row">
-
-            <input
-                type="text"
-                class="subject-name"
-                value="Subject 1"
-                placeholder="Subject name"
-            >
-
-            <input
-                type="number"
-                class="subject-credit"
-                placeholder="Credits"
-                min="0"
-                step="0.5"
-            >
-
-            <select class="subject-grade">
-
-                <option value="">Select</option>
-                <option value="10">O</option>
-                <option value="9">A+</option>
-                <option value="8">A</option>
-                <option value="7">B+</option>
-                <option value="6">B</option>
-                <option value="5">C</option>
-                <option value="4">P</option>
-                <option value="0">F</option>
-
-            </select>
-
-            <input
-                type="text"
-                class="grade-point"
-                value="-"
-                readonly
-            >
-
-            <button
-                type="button"
-                class="remove-subject"
-            >
-                ×
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <div class="calculator-actions">
-
-        <button
-            type="button"
-            id="addSubject"
-            class="secondary-calc-btn"
-        >
-            + Add Subject
-        </button>
-
-
-        <div class="right-actions">
-
-            <button
-                type="button"
-                id="resetCalculator"
-                class="reset-btn"
-            >
-                Reset
-            </button>
-
-            <button
-                type="button"
-                id="calculateSgpa"
-                class="primary-calc-btn"
-            >
-                Calculate SGPA
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <div
-        id="errorMessage"
-        class="error-message"
-    ></div>
-
-
-    <div class="result-box">
-
-        <div class="result-main">
-
-            <span>YOUR SGPA</span>
-
-            <strong id="sgpaResult">
-                0.00
-            </strong>
+            <p>
+                Enter the credits and grade for every subject.
+            </p>
 
         </div>
 
 
-        <div class="result-details">
+        <div class="table-header">
 
-            <div>
-                <span>Total Credits</span>
-                <strong id="totalCredits">0</strong>
-            </div>
+            <span>Subject</span>
 
-            <div>
-                <span>Total Credit Points</span>
-                <strong id="totalPoints">0.00</strong>
-            </div>
+            <span>Credits</span>
 
-            <div>
-                <span>Percentage*</span>
-                <strong id="percentageResult">0.00%</strong>
+            <span>Grade</span>
+
+            <span>Grade Point</span>
+
+            <span></span>
+
+        </div>
+
+
+        <div id="subjectContainer">
+
+            <div class="subject-row">
+
+                <input
+                    type="text"
+                    class="subject-name"
+                    value="Subject 1"
+                    placeholder="Subject name"
+                >
+
+
+                <input
+                    type="number"
+                    class="subject-credit"
+                    placeholder="Credits"
+                    min="0"
+                    step="0.5"
+                >
+
+
+                <select class="subject-grade">
+
+                    <option value="">Select</option>
+
+                    <option value="10">O</option>
+
+                    <option value="9">A+</option>
+
+                    <option value="8">A</option>
+
+                    <option value="7">B+</option>
+
+                    <option value="6">B</option>
+
+                    <option value="5">C</option>
+
+                    <option value="4">P</option>
+
+                    <option value="0">F</option>
+
+                </select>
+
+
+                <input
+                    type="text"
+                    class="grade-point"
+                    value="-"
+                    readonly
+                >
+
+
+                <button
+                    type="button"
+                    class="remove-subject"
+                >
+                    ×
+                </button>
+
             </div>
 
         </div>
 
+
+        <div class="calculator-actions">
+
+            <button
+                type="button"
+                id="addSubject"
+                class="secondary-calc-btn"
+            >
+                + Add Subject
+            </button>
+
+
+            <div class="right-actions">
+
+                <button
+                    type="button"
+                    id="resetCalculator"
+                    class="reset-btn"
+                >
+                    Reset
+                </button>
+
+
+                <button
+                    type="button"
+                    id="calculateSgpa"
+                    class="primary-calc-btn"
+                >
+                    Calculate SGPA
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="errorMessage"
+            class="error-message"
+        ></div>
+
+
+        <div class="result-box">
+
+            <div class="result-main">
+
+                <span>YOUR SGPA</span>
+
+                <strong id="sgpaResult">
+                    0.00
+                </strong>
+
+            </div>
+
+
+            <div class="result-details">
+
+                <div>
+
+                    <span>Total Credits</span>
+
+                    <strong id="totalCredits">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>Total Credit Points</span>
+
+                    <strong id="totalPoints">
+                        0.00
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>Percentage*</span>
+
+                    <strong id="percentageResult">
+                        0.00%
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
 
-</div>
+
+    <div class="formula-card">
+
+        <h2>How is SGPA calculated?</h2>
+
+        <p>
+            SGPA is calculated using the weighted average
+            of grade points based on subject credits.
+        </p>
 
 
-<div class="formula-card">
+        <div class="formula">
 
-    <h2>How is SGPA calculated?</h2>
+            SGPA = Σ(Credit × Grade Point) ÷ Σ(Credits)
 
-    <p>
-        SGPA is calculated using the weighted average
-        of grade points based on subject credits.
-    </p>
+        </div>
 
-    <div class="formula">
-        SGPA = Σ(Credit × Grade Point) ÷ Σ(Credits)
+
+        <p class="formula-note">
+
+            *Percentage conversion may differ between universities.
+            The displayed percentage uses SGPA × 10 as a general reference.
+
+        </p>
+
     </div>
-
-    <p class="formula-note">
-        *Percentage conversion may differ between universities.
-        The displayed percentage uses SGPA × 10 as a general reference.
-    </p>
-
-</div>
 
 
 </section>
 
 </main>
 
+
 <footer class="footer">
 
+    <div class="footer-container">
 
-<div class="footer-container">
 
-    <div class="footer-brand">
+        <div class="footer-brand">
 
-        <div class="logo">
-            <span class="logo-icon">🎓</span>
-            StudentHub
+            <div class="logo">
+
+                <span class="logo-icon">🎓</span>
+
+                StudentHub
+
+            </div>
+
+
+            <p>
+                Everything a student needs in one place.
+            </p>
+
         </div>
 
+
+        <div class="footer-links">
+
+            <a href="/">Home</a>
+
+            <a href="/#tools">Tools</a>
+
+            <a href="/#career">Career</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
         <p>
-            Everything a student needs in one place.
+            © 2026 StudentHub. All rights reserved.
         </p>
 
     </div>
 
-    <div class="footer-links">
-        <a href="/">Home</a>
-        <a href="/#tools">Tools</a>
-        <a href="/#career">Career</a>
-    </div>
-
-</div>
-
-
-<div class="footer-bottom">
-    <p>© 2026 StudentHub. All rights reserved.</p>
-</div>
-
 </footer>
+
 
 <script src="{% static 'StudentX/js/sgpa.js' %}"></script>
 
 </body>
+
 </html>
