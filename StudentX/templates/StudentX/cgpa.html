@@ -1,323 +1,387 @@
 {% load static %}
 
 <!DOCTYPE html>
-
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>JNTUH CGPA Calculator – Calculate CGPA Online | StudentHub</title>
+    <title>JNTUH CGPA Calculator – Calculate CGPA Online | StudentHub</title>
 
-<meta name="description"
-      content="Calculate your JNTUH CGPA online with StudentHub's free CGPA calculator. Enter your semester grades and credits to calculate your overall CGPA easily.">
+    <meta name="description"
+          content="Calculate your JNTUH CGPA online with StudentHub's free CGPA calculator. Enter your semester SGPA and credits to calculate your overall CGPA quickly and easily.">
 
-<meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow">
 
-<link rel="stylesheet" href="{% static 'StudentX/css/style.css' %}">
-<link rel="stylesheet" href="{% static 'StudentX/css/cgpa.css' %}">
+    <link rel="canonical"
+          href="https://studenthub-kmob.onrender.com/cgpa/">
+
+    <link rel="stylesheet"
+          href="{% static 'StudentX/css/style.css' %}">
+
+    <link rel="stylesheet"
+          href="{% static 'StudentX/css/cgpa.css' %}">
 
 </head>
 
 <body>
 
 <header class="navbar">
+
     <div class="nav-container">
 
-    <a href="/" class="logo">
-        <span class="logo-icon">🎓</span>
-        <span>StudentHub</span>
-    </a>
+        <a href="/" class="logo">
+            <span class="logo-icon">🎓</span>
+            <span>StudentHub</span>
+        </a>
 
-    <button class="menu-btn" id="menuBtn" aria-label="Open menu">
-        ☰
-    </button>
+        <button
+            class="menu-btn"
+            id="menuBtn"
+            aria-label="Open menu"
+        >
+            ☰
+        </button>
 
-    <nav class="nav-menu" id="navMenu">
-        <a href="/">Home</a>
-        <a href="/#tools">Tools</a>
-        <a href="/#career">Career</a>
-        <a href="/#about">About</a>
-    </nav>
+        <nav class="nav-menu" id="navMenu">
 
-</div>
+            <a href="/">Home</a>
+
+            <a href="/#tools">Tools</a>
+
+            <a href="/#career">Career</a>
+
+            <a href="/#about">About</a>
+
+        </nav>
+
+    </div>
 
 </header>
+
 
 <main>
 
 <section class="calculator-page">
 
-<!-- HEADER -->
 
-<div class="calculator-header">
+    <!-- HEADER -->
 
-    <div class="calculator-badge">
-        📊 Academic Calculator
-    </div>
+    <div class="calculator-header">
 
-    <h1>CGPA Calculator</h1>
+        <div class="calculator-badge">
+            📊 Academic Calculator
+        </div>
 
-    <p>
-        Calculate your overall CGPA using your semester SGPA
-        and credit values.
-    </p>
+        <h1>JNTUH CGPA Calculator</h1>
 
-</div>
-
-
-<!-- CALCULATOR -->
-
-<div class="calculator-card">
-
-    <div class="card-title">
-
-        <section class="seo-content">
-
-    <h2>CGPA Calculator</h2>
-
-    <p>
-        StudentHub's CGPA Calculator helps students calculate their
-        cumulative grade point average quickly and easily.
-    </p>
-
-    <h2>How to Calculate CGPA?</h2>
-
-    <p>
-        Enter your semester grades and credits into the calculator.
-        The calculator uses the provided academic information to
-        calculate your overall CGPA.
-    </p>
-
-    <h2>Who Can Use This CGPA Calculator?</h2>
-
-    <p>
-        This calculator can be useful for students who want to
-        calculate and track their academic performance.
-    </p>
-
-</section>
+        <p>
+            Calculate your overall CGPA using semester SGPA
+            and credit values with our free online CGPA calculator.
+        </p>
 
     </div>
 
 
-    <!-- SEMESTERS -->
+    <!-- CALCULATOR -->
 
-    <div id="semesterContainer">
-
-        <div class="semester-row">
-
-            <div class="input-group">
-
-                <label>Semester</label>
-
-                <input
-                    type="text"
-                    class="semester-number"
-                    value="1"
-                    readonly
-                >
-
-            </div>
+    <div class="calculator-card">
 
 
-            <div class="input-group">
+        <div class="card-title">
 
-                <label>SGPA</label>
+            <section class="seo-content">
 
-                <input
-                    type="number"
-                    class="sgpa"
-                    placeholder="Example: 8.25"
-                    min="0"
-                    max="10"
-                    step="0.01"
-                >
+                <h2>JNTUH CGPA Calculator</h2>
 
-            </div>
+                <p>
+                    StudentHub's JNTUH CGPA Calculator helps students
+                    calculate their cumulative grade point average using
+                    semester SGPA and credit values. Enter your semester
+                    details to calculate your overall CGPA quickly.
+                </p>
 
 
-            <div class="input-group">
+                <h2>How to Calculate CGPA?</h2>
 
-                <label>Credits</label>
-
-                <input
-                    type="number"
-                    class="credits"
-                    placeholder="Example: 20"
-                    min="0"
-                    step="0.1"
-                >
-
-            </div>
+                <p>
+                    Enter the SGPA and credits for each semester.
+                    The calculator calculates the credit-weighted average
+                    of your semester SGPAs to determine your overall CGPA.
+                </p>
 
 
-            <button
-                type="button"
-                class="remove-semester"
-                title="Remove semester"
-            >
-                ×
-            </button>
+                <h2>CGPA Calculation Formula</h2>
+
+                <p>
+                    The CGPA is calculated using the following
+                    credit-weighted formula:
+                </p>
+
+                <p>
+                    This calculator can help B.Tech and other students
+                    calculate and track their academic performance
+                    across multiple semesters.
+                </p>
+
+            </section>
 
         </div>
 
-    </div>
+
+        <!-- SEMESTERS -->
+
+        <div id="semesterContainer">
+
+            <div class="semester-row">
+
+                <div class="input-group">
+
+                    <label>Semester</label>
+
+                    <input
+                        type="text"
+                        class="semester-number"
+                        value="1"
+                        readonly
+                    >
+
+                </div>
 
 
-    <!-- ACTIONS -->
+                <div class="input-group">
 
-    <div class="calculator-actions">
+                    <label>SGPA</label>
 
-        <button
-            type="button"
-            id="addSemester"
-            class="secondary-calc-btn"
+                    <input
+                        type="number"
+                        class="sgpa"
+                        placeholder="Example: 8.25"
+                        min="0"
+                        max="10"
+                        step="0.01"
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>Credits</label>
+
+                    <input
+                        type="number"
+                        class="credits"
+                        placeholder="Example: 20"
+                        min="0"
+                        step="0.1"
+                    >
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="remove-semester"
+                    title="Remove semester"
+                >
+                    ×
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ACTIONS -->
+
+        <div class="calculator-actions">
+
+            <button
+                type="button"
+                id="addSemester"
+                class="secondary-calc-btn"
+            >
+                + Add Semester
+            </button>
+
+
+            <div class="right-actions">
+
+                <button
+                    type="button"
+                    id="resetCalculator"
+                    class="reset-btn"
+                >
+                    Reset
+                </button>
+
+
+                <button
+                    type="button"
+                    id="calculateCgpa"
+                    class="primary-calc-btn"
+                >
+                    Calculate CGPA
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ERROR -->
+
+        <div
+            id="errorMessage"
+            class="error-message"
+        ></div>
+
+
+        <!-- RESULT -->
+
+        <div
+            id="resultBox"
+            class="result-box"
         >
-            + Add Semester
-        </button>
 
-        <div class="right-actions">
+            <div class="result-main">
 
-            <button
-                type="button"
-                id="resetCalculator"
-                class="reset-btn"
-            >
-                Reset
-            </button>
+                <span>YOUR CGPA</span>
 
-            <button
-                type="button"
-                id="calculateCgpa"
-                class="primary-calc-btn"
-            >
-                Calculate CGPA
-            </button>
+                <strong id="cgpaResult">
+                    0.00
+                </strong>
 
-        </div>
-
-    </div>
-
-
-    <!-- ERROR -->
-
-    <div
-        id="errorMessage"
-        class="error-message"
-    ></div>
-
-
-    <!-- RESULT -->
-
-    <div
-        id="resultBox"
-        class="result-box"
-    >
-
-        <div class="result-main">
-
-            <span>YOUR CGPA</span>
-
-            <strong id="cgpaResult">
-                0.00
-            </strong>
-
-        </div>
-
-
-        <div class="result-details">
-
-            <div>
-                <span>Total Credits</span>
-                <strong id="totalCredits">0</strong>
             </div>
 
-            <div>
-                <span>Weighted Points</span>
-                <strong id="weightedPoints">0.00</strong>
-            </div>
 
-            <div>
-                <span>Percentage</span>
-                <strong id="percentageResult">0.00%</strong>
+            <div class="result-details">
+
+                <div>
+
+                    <span>Total Credits</span>
+
+                    <strong id="totalCredits">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>Weighted Points</span>
+
+                    <strong id="weightedPoints">
+                        0.00
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>Percentage</span>
+
+                    <strong id="percentageResult">
+                        0.00%
+                    </strong>
+
+                </div>
+
             </div>
 
         </div>
 
     </div>
 
-</div>
+
+    <!-- FORMULA -->
+
+    <div class="formula-card">
+
+        <h2>How is CGPA calculated?</h2>
+
+        <p>
+            CGPA is calculated using the credit-weighted average
+            of all semester SGPAs.
+        </p>
 
 
-<!-- FORMULA -->
+        <div class="formula">
 
-<div class="formula-card">
+            CGPA = Σ(SGPA × Credits) ÷ Σ(Credits)
 
-    <h2>How is CGPA calculated?</h2>
+        </div>
 
-    <p>
-        CGPA is calculated using the credit-weighted average
-        of all semester SGPAs.
-    </p>
 
-    <div class="formula">
-        CGPA = Σ(SGPA × Credits) ÷ Σ(Credits)
+        <p class="formula-note">
+
+            The percentage conversion shown above uses
+            <strong>CGPA × 10</strong> as a general conversion.
+            Your university may use a different formula.
+
+        </p>
+
     </div>
 
-    <p class="formula-note">
-        The percentage conversion shown above uses
-        <strong>CGPA × 10</strong> as a general conversion.
-        Your university may use a different formula.
-    </p>
-
-</div>
 
 </section>
 
 </main>
 
+
 <footer class="footer">
 
+    <div class="footer-container">
 
-<div class="footer-container">
 
-    <div class="footer-brand">
+        <div class="footer-brand">
 
-        <div class="logo">
-            <span class="logo-icon">🎓</span>
-            StudentHub
+            <div class="logo">
+
+                <span class="logo-icon">🎓</span>
+
+                StudentHub
+
+            </div>
+
+
+            <p>
+                Everything a student needs in one place.
+            </p>
+
         </div>
 
+
+        <div class="footer-links">
+
+            <a href="/">Home</a>
+
+            <a href="/#tools">Tools</a>
+
+            <a href="/#career">Career</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
         <p>
-            Everything a student needs in one place.
+            © 2026 StudentHub. All rights reserved.
         </p>
 
     </div>
 
-    <div class="footer-links">
-
-        <a href="/">Home</a>
-        <a href="/#tools">Tools</a>
-        <a href="/#career">Career</a>
-
-    </div>
-
-</div>
-
-
-<div class="footer-bottom">
-
-    <p>
-        © 2026 StudentHub. All rights reserved.
-    </p>
-
-</div>
-
-
 </footer>
+
 
 <script src="{% static 'StudentX/js/cgpa.js' %}"></script>
 
 </body>
+
 </html>
