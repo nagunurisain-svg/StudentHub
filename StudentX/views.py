@@ -2,7 +2,7 @@ import re
 from datetime import timedelta
 
 from django.shortcuts import render
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.contrib.admin.views.decorators import staff_member_required
 from django.db.models import Count
 from django.utils import timezone
@@ -665,10 +665,6 @@ def resume_analyzer(request):
             )
 
 
-        # ==========================================
-        # RESPONSE
-        # ==========================================
-
         return JsonResponse({
 
             "success": True,
@@ -711,6 +707,15 @@ def resume_analyzer(request):
             "error": "Unable to process the resume."
 
         }, status=500)
+
+
+def robots_txt(request):
+    return HttpResponse(
+        "User-agent: *\n"
+        "Allow: /\n\n"
+        "Sitemap: https://studenthub-kmob.onrender.com/sitemap.xml\n",
+        content_type="text/plain"
+    )
 
 
 @staff_member_required

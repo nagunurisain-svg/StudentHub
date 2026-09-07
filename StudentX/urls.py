@@ -1,5 +1,8 @@
 from django.urls import path
+from django.contrib.sitemaps.views import sitemap
+
 from . import views
+from .sitemaps import StudentHubSitemap
 
 urlpatterns = [
     path("", views.home, name="home"),
@@ -11,9 +14,10 @@ urlpatterns = [
     path("attendance/", views.attendance, name="attendance"),
     path("required-marks/", views.required_marks, name="required_marks"),
     path("backlog/", views.backlog, name="backlog"),
-    path("cgpa-percentage/", views.cgpa_percentage, name="cgpa_percentage"),
+    path("cgpa-to-percentage/", views.cgpa_percentage, name="cgpa_percentage"),
     path("diploma-cgpa/", views.diploma_cgpa, name="diploma_cgpa"),
     path("resume-analyzer/", views.resume_analyzer, name="resume_analyzer"),
+    path("robots.txt", views.robots_txt, name="robots_txt"),
 
     path(
         "analytics/",
@@ -26,4 +30,11 @@ urlpatterns = [
         views.record_tool_usage,
         name="record_tool_usage"
     ),
+
+    path(
+    "sitemap.xml",
+    sitemap,
+    {"sitemaps": {"studenthub": StudentHubSitemap}},
+    name="django.contrib.sitemaps.views.sitemap",
+),
 ]
