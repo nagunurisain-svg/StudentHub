@@ -325,13 +325,14 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
 
-            /* ==========================================
-               GET CSRF TOKEN
-               ========================================== */
+           /* ==========================================
+   GET CSRF TOKEN
+   ========================================== */
 
-            const csrfToken =
-                getCookie("csrftoken");
-
+const csrfToken =
+    document.querySelector(
+        '[name=csrfmiddlewaretoken]'
+    )?.value;
 
             /* ==========================================
                SEND FILE TO DJANGO
